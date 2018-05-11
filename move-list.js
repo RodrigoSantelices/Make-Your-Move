@@ -2,28 +2,28 @@ const MOCK_MOVE_LIST ={
   "moveList":[
       {
         "id":"1111",
-        "item-name": "foof",
-        "item-location": "car",
-        "item-value":"$50",
-        "item-image":"pic goes here",
+        "name": "foof",
+        "location": "car",
+        "value":"$50",
+        "image":"pic goes here",
         "status":"Loaded"
       },
 
       {
         "id":"2222",
-        "item-name": "chair",
-        "item-location": "truck",
-        "item-value":"$100",
-        "item-image":"pic goes here",
+        "name": "chair",
+        "location": "truck",
+        "value":"$100",
+        "image":"pic goes here",
         "status":"Unloaded"
       },
 
       {
         "id":"3333",
-        "item-name": "bed",
-        "item-location": "home",
-        "item-value":"$350",
-        "item-image":"pic goes here",
+        "name": "bed",
+        "location": "home",
+        "value":"$350",
+        "image":"pic goes here",
         "status":"Loaded"
       },
   ]
