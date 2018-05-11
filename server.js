@@ -70,7 +70,7 @@ function getAndDisplayMoveList (){
 
 // on page load do this
 
-$(function(){
+$( document ).ready(function(){
   getAndDisplayMoveList();
 })
 
