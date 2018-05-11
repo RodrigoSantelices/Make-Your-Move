@@ -42,4 +42,37 @@ const MOCK_MOVE_LIST ={
       },
   ]
 }
+
+// this function's name and argument can stay the
+// same after we have a live API, but its internal
+// implementation will change. Instead of using a
+// timeout function that returns mock data, it will
+// use jQuery's AJAX functionality to make a call
+// to the server and then run the callbackFn
+function getMoveList(callback){
+  setTimeout(function(){callback(MOCK_MOVE_LIST)},1);
+}
+
+// this function stays the same when we connect
+// to real API later
+
+function displayMoveList(data){
+  for(index in data.moveList){
+    $('body').append(
+      '<p>'+ data.moveList[index].text + '</p>');
+  }
+}
+//this function can stay the same
+
+function getAndDisplayMoveList (){
+  getMoveList(displayMoveList);
+}
+
+// on page load do this
+
+$(function(){
+  getAndDisplayMoveList();
+})
+
+
 module.exports = app;
