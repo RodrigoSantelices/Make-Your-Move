@@ -45,7 +45,7 @@ function getMoveList(callback){
 function displayMoveList(data){
   for(index in data.moveList){
     $('body').append(
-      '<p>'+ data.moveList[index].item-name + data.moveList[index].item-value + data.moveList[index].status + '</p>');
+      '<p>'+ data.moveList[index].status + '</p>');
   }
 }
 //this function can stay the same
