@@ -25,7 +25,7 @@ const MOCK_MOVE_LIST ={
         "value":"$350",
         "image":"pic goes here",
         "status":"Loaded"
-      },
+      }
   ]
 }
 
