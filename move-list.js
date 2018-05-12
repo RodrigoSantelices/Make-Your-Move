@@ -56,6 +56,6 @@ function getAndDisplayMoveList (){
 
 // on page load do this
 
-$( document ).ready(function(){
+$(function(){
   getAndDisplayMoveList();
 })
