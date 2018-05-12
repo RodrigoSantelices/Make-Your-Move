@@ -44,7 +44,7 @@ function getMoveList(callback){
 
 function displayMoveList(data){
   for(index in data.moveList){
-    $('body').append(
+    $(`.move-list-js`).append(
       '<p>'+ data.moveList[index].status + '</p>');
   }
 }
