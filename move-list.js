@@ -37,6 +37,7 @@ const MOCK_MOVE_LIST ={
 // to the server and then run the callbackFn
 function getMoveList(callbackFN){
   setTimeout(function(){callbackFN(MOCK_MOVE_LIST)},1);
+  console.log('getMoveList works');
 }
 
 // this function stays the same when we connect
@@ -47,15 +48,18 @@ function displayMoveList(data){
     $(`.move-list-js`).append(
       '<p>'+ data.moveList[index].name + '</p>');
   }
+  console.log('displaymovelist works');
 }
 //this function can stay the same
 
 function getAndDisplayMoveList (){
   getMoveList(displayMoveList);
+  console.log('getAndDisplayMoveList works');
 }
 
 // on page load do this
 
 $(function(){
   getAndDisplayMoveList();
+  console.log('final call should work');
 })
