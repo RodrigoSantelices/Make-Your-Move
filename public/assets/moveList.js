@@ -54,9 +54,15 @@ function getMoveList(callbackFN){
 function displayMoveList(data){
   for(index in data.moveList){
     $(`.move-list-js`).append(
-      '<div class="move-list-item"><p>'+ data.moveList[index].name +" "+ data.moveList[index].value + '</p></div>');
+      `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +" "+ data.moveList[index].value + `</p></div><div class="shopping-item-controls">
+            <label>Loaded?</label>
+            <input class= "loaded-js" type= "checkbox">
+        <button class="shopping-item-delete js-item-delete">
+            <span class="button-label">delete</span>
+        </button>
+      </div></div>`);
   }
-  console.log('displaymovelist works');
+
 }
 //this function can stay the same
 
