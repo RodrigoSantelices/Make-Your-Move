@@ -1,3 +1,8 @@
 .nav p{
   display: inline-block;
 }
+
+.bigBox{
+  border: 1px solid gray;
+  background-color: #FFF8F3;
+}

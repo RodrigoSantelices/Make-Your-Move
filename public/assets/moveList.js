@@ -6,6 +6,7 @@ $(`.add-item-js`).submit(event =>{
 }
 
 
+
 const MOCK_MOVE_LIST ={
   "moveList":[
       {
