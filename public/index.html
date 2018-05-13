@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="float-grid.css" rel='stylesheet' type="text/css">
+    <link href="styles/index.css" rel='stylesheet' type="text/css">
     <title></title>
   </head>
   <body>
@@ -12,7 +13,19 @@
       <h2>Get organized and get moving!</h2>
 
     </header>
-    <button class="sign-in"><a href="../home.html">Sign In</a></button>
-    <button class="sign-up"><a href="../home.html">Sign up</a></button>
-  </body>
+    <form class="signup" action="/signup/" method="post">
+
+         <h1>Sign Up</h1>
+       <label for="email" class="labels">Email</label>
+       <input type="email" name="email-input" class='inputs' id="email" placeholder="foo@bar.com" required=" Email Required">
+       <label for="password" class="labels">Password</label>
+       <input type="password" name="password-input" class='inputs' id="password" placeholder="1234passw0rd" required="Password Required">
+       <div class="buttpad">
+       <button type="button" name="signup_button">Sign up</button>
+       <button class="sign-in"><a href="../home.html">Sign In</a></button>
+     </body>
+       </div>
+     </form>
+
+     </body>
 </html>

@@ -1,3 +1,11 @@
+function addItem(){
+$(`.add-item-js`).submit(event =>{
+  event.preventDefault();
+
+})
+}
+
+
 const MOCK_MOVE_LIST ={
   "moveList":[
       {
@@ -46,7 +54,7 @@ function getMoveList(callbackFN){
 function displayMoveList(data){
   for(index in data.moveList){
     $(`.move-list-js`).append(
-      '<div class="move-list-item"><p>'+ data.moveList[index].name + data.moveList[index].status + '</p></div>');
+      '<div class="move-list-item"><p>'+ data.moveList[index].name +" "+ data.moveList[index].value + '</p></div>');
   }
   console.log('displaymovelist works');
 }
