@@ -7,12 +7,69 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
 
-if (require.main === module){
-app.listen(process.env.PORT || 8080, function(){
-  console.info(`App is listening on ${this.address().port}`);
+const {router: userRouter} = require('./users');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
+
+mongoose.Promise = global.Promise;
+
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+app.use('/api/users', userRouter);
+app.use('/api/auth', authRouter);
+
+const jwtAuth = passport.authenticate('jwt', {session: false});
+
+app.get('/api/protected', jwtAuth, (req, res) =>{
+  return res.json({
+     user: req.user
+  });
 });
+
+app.use('*', (req, res) =>{
+  return res.status(404).json({message: 'Not Found'});
+});
+
+let server;
+
+function runServer(databaseUrl, port = PORT) {
+
+  return new Promise((resolve, reject) => {
+    mongoose.connect(databaseUrl, err => {
+      if (err) {
+        return reject(err);
+      }
+      server = app.listen(port, () => {
+        console.log(`Your app is listening on port ${port}`);
+        resolve();
+      })
+        .on('error', err => {
+          mongoose.disconnect();
+          reject(err);
+        });
+    });
+  });
+}
+
+function closeServer() {
+  return mongoose.disconnect().then(() => {
+    return new Promise((resolve, reject) => {
+      console.log('Closing server');
+      server.close(err => {
+        if (err) {
+          return reject(err);
+        }
+        resolve();
+      });
+    });
+  });
+}
+
+if (require.main === module){
+
+  runServer(DATABASE_URL).catch(err => console.error(err));
 }
 
 
 
-module.exports = app;
+module.exports = {app, runServer, closeServer};

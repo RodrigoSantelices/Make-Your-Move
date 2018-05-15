@@ -6,3 +6,11 @@
   border: 1px solid gray;
   background-color: #FFF8F3;
 }
+
+.item-container{
+  border: 1px solid gray;
+  border-radius: 15px 15px 30px;
+  background-color: #FF7B19;
+  padding: 5px;
+  margin: 5px;
+}

@@ -1,10 +1,22 @@
+
+// this function will submit an item to the loaded list if it is properly filled out
+
 function addItem(){
 $(`.add-item-js`).submit(event =>{
   event.preventDefault();
 
 })
 }
+// this function clears items out of the loaded or unloaded lists
+function deleteItem(){
 
+}
+//this function takes a checked item from the unloaded list to the loaded list
+function loadItem(){
+  if ($(`.loaded-js`).attr('checked')){
+    
+  }
+}
 
 
 const MOCK_MOVE_LIST ={
@@ -54,7 +66,7 @@ function getMoveList(callbackFN){
 
 function displayMoveList(data){
   for(index in data.moveList){
-    $(`.move-list-js`).append(
+    $(`.unloaded-container`).append(
       `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +" "+ data.moveList[index].value + `</p></div><div class="shopping-item-controls">
             <label>Loaded?</label>
             <input class= "loaded-js" type= "checkbox">
