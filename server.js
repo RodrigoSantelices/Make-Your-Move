@@ -6,13 +6,17 @@ app.use(express.static('public'));
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
+const dotenv = require('dotenv');
 
+dotenv.config();
+const { DATABASE_URL } = require('./config');
+const { PORT} = require('./config');
 const {router: userRouter} = require('./users');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
 
 mongoose.Promise = global.Promise;
 
-passport.use(localStrategy);
+passport.use("basic",localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/api/users', userRouter);

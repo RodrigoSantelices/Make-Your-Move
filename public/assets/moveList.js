@@ -1,20 +1,33 @@
 
 // this function will submit an item to the loaded list if it is properly filled out
 
-function addItem(){
-$(`.add-item-js`).submit(event =>{
+//adds Item
+$(`.move-form`).submit(function(event){
   event.preventDefault();
-
+  console.log("ran")
+  const itemUnload = $(`.item-js`).val();
+  $(`.item-js`).val(" ");
+  const valueUnload = $(`.value-js`).val();
+  $(`.value-js`).val(" ");
+  $(`.unloaded-container`).append(
+    `<div class = "item-container"><div class="move-list-item">${itemUnload}`+` ${valueUnload}</div><div class="item-controls">
+          <label>Loaded?</label>
+          <input class= "loaded-js" type= "checkbox">
+      <button class="item-delete">
+          delete
+      </button>
+    </div></div>`);
 })
-}
-// this function clears items out of the loaded or unloaded lists
-function deleteItem(){
 
-}
+// this function clears items out of the loaded or unloaded lists
+$(`.bigBox`).on('click','.item-delete', function(event){
+  $(this).closest('.item-container').remove();
+})
+
 //this function takes a checked item from the unloaded list to the loaded list
 function loadItem(){
   if ($(`.loaded-js`).attr('checked')){
-    
+
   }
 }
 
@@ -66,12 +79,12 @@ function getMoveList(callbackFN){
 
 function displayMoveList(data){
   for(index in data.moveList){
-    $(`.unloaded-container`).append(
-      `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +" "+ data.moveList[index].value + `</p></div><div class="shopping-item-controls">
+    $(`.loaded-container`).append(
+      `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +" "+ data.moveList[index].value + `</p></div><div class="item-controls">
             <label>Loaded?</label>
             <input class= "loaded-js" type= "checkbox">
-        <button class="shopping-item-delete js-item-delete">
-            <span class="button-label">delete</span>
+        <button class="item-delete">
+            delete
         </button>
       </div></div>`);
   }

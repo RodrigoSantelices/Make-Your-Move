@@ -1,8 +1,8 @@
 
-function signIn(user){
+function signUp(user){
 $.ajax({
   method:"post",
-  url: "/api/auth",
+  url: "/api/users/",
   data: JSON.stringify(user),
   headers:{
     "content-type":"application/json"
@@ -17,10 +17,35 @@ $(function(){
   $(`.signup`).submit(function(event){
     event.preventDefault();
     const user = {
-      username: $(`#email`).val();
-      password: $(`#password`).val();
+      username: $(`#email`).val(),
+      password: $(`#password`).val()
     }
-    signIn(user);
+    signUp(user);
+  })
+
+})
+
+function logIn(user){
+$.ajax({
+  method:"post",
+  url: "/api/auth/login/",
+  headers:{
+    "Authorization": "basic "+btoa(user.username+":"+user.password)
+  }
+}).done(function(error, data)
+{
+  console.log(error, data)
+}
+)
+}
+$(function(){
+  $(`.login`).submit(function(event){
+    event.preventDefault();
+    const user = {
+      username: $(`#emailLogin`).val(),
+      password: $(`#passwordLogin`).val()
+    }
+    logIn(user);
   })
 
 })
