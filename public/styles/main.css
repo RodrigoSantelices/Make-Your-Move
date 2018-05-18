@@ -1,8 +1,16 @@
-
+body {
+  background-color: #94F5EB;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 16px;
+  font-family: 'Roboto', helvetica, sans-serif;
+}
 .nav p{
   display: inline-block;
 }
-
+.nav{
+  text-align: center;
+}
 .bigBox{
   border: 1px solid gray;
   background-color: #FFF8F3;
@@ -11,10 +19,29 @@
 .item-container{
   border: 1px solid gray;
   border-radius: 15px 15px 30px;
-  background-color: #FF7B19;
+  background-color: #2B877D;
+  font-size: 20px;
+  color: white;
   padding: 5px;
   margin: 5px;
 }
 .move-form{
   padding: 40px;
+}
+
+.move-list-item, .item-controls, p{
+  display: inline-block;
+  padding-left: 20px;
+}
+h1,h2{
+  text-align: center;
+}
+.move-form{
+  text-align: center;
+}
+.unloaded-container{
+  background-color: #FFE8D7;
+}
+.loaded-container{
+  background-color: #C1ECA5;
 }

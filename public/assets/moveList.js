@@ -10,7 +10,7 @@ $(`.move-form`).submit(function(event){
   const valueUnload = $(`.value-js`).val();
   $(`.value-js`).val(" ");
   $(`.unloaded-container`).append(
-    `<div class = "item-container"><div class="move-list-item">${itemUnload}`+` ${valueUnload}</div><div class="item-controls">
+    `<div class = "item-container"><div class="move-list-item"><p>${itemUnload}</p><p>${valueUnload}</div><div class="item-controls">
           <label>Loaded?</label>
           <input class= "loaded-js" type= "checkbox">
       <button class="item-delete">
@@ -80,7 +80,7 @@ function getMoveList(callbackFN){
 function displayMoveList(data){
   for(index in data.moveList){
     $(`.loaded-container`).append(
-      `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +" "+ data.moveList[index].value + `</p></div><div class="item-controls">
+      `<div class = "item-container"><div class="move-list-item"><p>`+ data.moveList[index].name +"</p><p>"+ data.moveList[index].value + `</p></div><div class="item-controls">
             <label>Loaded?</label>
             <input class= "loaded-js" type= "checkbox">
         <button class="item-delete">
