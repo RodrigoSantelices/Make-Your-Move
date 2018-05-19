@@ -1,5 +1,5 @@
 'use strict';
-exports.DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/Make-Your-Move';
+exports.DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/Make-Your-Move'//'mongodb://mongodb://rodrigo:Test@ds229290.mlab.com:29290/make-your-move';
 exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || 'mongodb://localhost/Make-Your-Move';
 exports.PORT = process.env.PORT || 8080;
 exports.JWT_SECRET = process.env.JWT_SECRET;

@@ -1,5 +1,5 @@
 body {
-  background-color: #94F5EB;
+  background-color: #BCE2E2;
   padding-left: 40px;
   padding-right: 40px;
   font-size: 16px;
@@ -23,7 +23,7 @@ body {
   font-size: 20px;
   color: white;
   padding: 5px;
-  margin: 5px;
+  margin: 20px;
 }
 .move-form{
   padding: 40px;
@@ -44,4 +44,29 @@ h1,h2{
 }
 .loaded-container{
   background-color: #C1ECA5;
+}
+
+.nav-button{
+  height:50px;
+  width: 100px;
+  background-color: #BCE2E2;
+  border-color: #2B877D;
+  font-weight: 900;
+}
+.nav-button:hover{
+  border: 5px solid #2B877D;
+}
+a{
+  text-decoration: none !important;
+  color:#2B877D !important;
+}
+
+input.item-js, input.value-js, input.add-item-js{
+  height:30px;
+}
+.add-item-js{
+  background-color: #BCE2E2;
+  border-color: #2B877D;
+  font-weight: 900;
+  color:#2B877D;
 }

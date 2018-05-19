@@ -13,6 +13,7 @@ const { DATABASE_URL } = require('./config');
 const { PORT} = require('./config');
 const {router: userRouter} = require('./users');
 const {router: authRouter, localStrategy, jwtStrategy} = require('./auth');
+const {router: moveRouter} = require('./public/moveRouter');
 
 mongoose.Promise = global.Promise;
 
@@ -21,6 +22,7 @@ passport.use(jwtStrategy);
 
 app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/move', moveRouter);
 
 const jwtAuth = passport.authenticate('jwt', {session: false});
 

@@ -1,7 +1,8 @@
 
 // this function will submit an item to the loaded list if it is properly filled out
 
-//adds Item
+//adds Item lets make this post to an endpoint
+
 $(`.move-form`).submit(function(event){
   event.preventDefault();
   console.log("ran")
@@ -63,15 +64,39 @@ const MOCK_MOVE_LIST ={
   ]
 }
 
+var moveTemplate = (
+  '<div class="recipe js-moveList">' +
+    '<h3 class="js-moveItem-name"><h3>' +
+    '<hr>' +
+    '<h3 class="js-moveItem-value"><h3>' ++
+    '</hr>' +
+    '<div class="item-controls">' +
+      '<label>Loaded?</label><input class= "loaded-js" type= "checkbox">'+
+      '<button class="item-delete">delete</button>' +
+    '</div>' +
+  '</div>'
+);
+var serverBase ='//localhost:8080/';
+var MOVELIST_URL = serverBase + 'move';
 // this function's name and argument can stay the
 // same after we have a live API, but its internal
 // implementation will change. Instead of using a
 // timeout function that returns mock data, it will
 // use jQuery's AJAX functionality to make a call
 // to the server and then run the callbackFn
-function getMoveList(callbackFN){
-  setTimeout(function(){callbackFN(MOCK_MOVE_LIST)},1);
-  console.log('getMoveList works');
+function getMoveList(){
+ console.log('Retrieving move list')
+ $.getJSON(MOVELIST_URL, function(moveItems){
+   console.log('rendering move list');
+   var moveElement = moveItems.map(function(moveItem){
+     var element = $();
+     element.attr('id',moveItem.id);
+     element.find('js-moveItem-name').text(moveItem.name);
+     element.find('js-moveItem-value').text(moveItem.value);
+     return element;
+   });
+   $('.js-moveList').html(moveElement)
+ });
 }
 
 // this function stays the same when we connect
