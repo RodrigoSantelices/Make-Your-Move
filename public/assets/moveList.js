@@ -25,13 +25,15 @@ $(`.move-form`).submit(function (event) {
 */
 // this function clears items out of the loaded or unloaded lists
 $(`.bigBox`).on('click', '.item-delete', function (event) {
+  event.preventDefault();
   $(this).closest('.item-container').remove();
 
 })
 
 //this function takes a checked item from the unloaded list to the loaded list
-if ($(`.loaded-container`).on('click','item-load')) {
-  loadItem();}
+$(`.loaded-container`).on('click','item-load',function(event) {
+  event.preventDefault();
+  unloadItem();})
 
 function loadItem() {
   
@@ -43,6 +45,20 @@ function loadItem() {
 })
 }
 
+//this function takes a checked item from the unloaded list to the loaded list
+$(`.unloaded-container`).on('click','item-unload', function(event) {
+  event.preventDefault();
+  loadItem();})
+
+function unloadItem() {
+  
+    $.getJSON(MOVELIST_URL, function (moveLists) {
+      console.log('rendering move list');
+      var moveElement = moveLists.map(function (moveList) {
+        moveList.status = 0;
+})
+})
+}
 
 var serverBase = '//localhost:8080';
 var MOVELIST_URL = serverBase + '/api/move';
@@ -56,7 +72,7 @@ function getMoveList() {
      // element.attr('_id', moveList.id);
      if(moveList.status === 1){
       $(`.loaded-container`).append(
-        `<div class = "item-container"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + `</p></div><div class="item-controls">
+        `<div class = "item-container"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status`</p></div><div class="item-controls">
           <button class="item-unload">
               Unload
           </button>
