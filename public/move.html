@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <link href="styles/main.css" rel='stylesheet' type="text/css">
-    <title></title>
-  </head>
-  <body>
-    <header role="banner">
-      <h1>Make Your Move</h1>
-      <h2>Get organized and get moving!</h2>
-      <div class="nav">
-      <button class="home-button nav-button"><a href="../home.html">Homepage</a></button>
-      <button class="buy-button nav-button"><a href="../buy.html">Buy List</a></button>
-      <button class="sell-button nav-button"><a href="../sell.html">Sell List</a></button>
-      </div>
-    </header>
-    <div class="move-list-js">
-      <form class="move-form" action="move.html" method="post">
-        <label for="item" class="labels">Item</label>
-        <input type="text" class="item-js" placeholder="Name">
-        <label for="item" class="labels">Value</label>
-        <input type="number" class="value-js" placeholder="Value">
-        <input class="add-item-js" type="submit"></input>
-      </form>
-      <div class="unloaded-container bigBox"><h2>Unpacked</h2></div>
-      <script type="text/javascript" src="assets/moveList.js"></script>
-      <div class="loaded-container bigBox">
-        <h2>Packed!</h2>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+  <link href="styles/main.css" rel='stylesheet' type="text/css">
+  <title></title>
+</head>
+
+<body>
+  <header role="banner">
+    <h1>Make Your Move</h1>
+    <h2>Get organized and get moving!</h2>
+    <div class="nav">
+      <button class="home-button nav-button">
+        <a href="../home.html">Homepage</a>
+      </button>
+      <button class="buy-button nav-button">
+        <a href="">Buy List</a>
+      </button>
+      <button class="sell-button nav-button">
+        <a href="">Sell List</a>
+      </button>
+    </div>
+  </header>
+  <div class="move-list-js">
+    <form class="move-form" action="move.html" method="post">
+      <label for="item" class="labels">Item</label>
+      <input type="text" class="name-js" placeholder="Name">
+      <label for="item" class="labels">Value</label>
+      <input type="number" class="value-js" placeholder="Value">
+      <input class="add-item-js" type="submit"></input>
+    </form>
+    <div class="unloaded-container bigBox">
+      <h2>Unpacked</h2>
+    </div>
+    <script type="text/javascript" src="assets/moveList.js"></script>
+    <div class="loaded-container bigBox">
+      <h2>Packed!</h2>
     </div>
 
-  </body>
+  </div>
+
+</body>
+
 </html>

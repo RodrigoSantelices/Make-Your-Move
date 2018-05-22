@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <link href="float-grid.css" rel='stylesheet' type="text/css">
-    <link href="styles/index.css" rel='stylesheet' type="text/css">
-    <title></title>
-  </head>
-  <body>
-    <header class="navigation">
-      <h1>Make Your Move</h1>
-      <h2>Get organized and get moving!</h2>
 
-    </header>
-    <div class="logBox">
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link href="float-grid.css" rel='stylesheet' type="text/css">
+  <link href="styles/index.css" rel='stylesheet' type="text/css">
+  <title></title>
+</head>
+
+<body>
+  <header class="navigation">
+    <h1>Make Your Move</h1>
+    <h2>Get organized and get moving!</h2>
+
+  </header>
+  <div class="logBox">
     <form class="signup" method="post">
-       <div class="buttpad">
-       <button name="signup_button">Sign up</button>
-       </div>
-     </form>
-     <form class="login" method="post">
+      <section class="signUpBox">
+        <input type="email" name="email-input" class='inputs' id="email" placeholder="Email" required="Email Required">
+        <input type="password" name="password-input" class='inputs' id="password" placeholder="Password" required="Password Required">
+      </section>
+      <div class="buttpad">
+        <button name="signup_button">Sign up</button>
+      </div>
+    </form>
+    <form class="login" method="post">
+      <section class="loginBox">
+        <input type="email" name="email-input" class='inputs' id="emailLogin" placeholder="Email" required=" Email Required">
+        <input type="password" name="password-input" class='inputs' id="passwordLogin" placeholder="Password" required="Password Required">
         <div class="buttpad">
-        <button type="submit" class="sign-in">Sign In</button>
+          <button type="submit" class="sign-in">Log In</button>
         </div>
-      </form>
-    </div>
-      <script type="text/javascript" src="assets/index.js">
+      </section>`
 
-      </script>
-     </body>
+    </form>
+  </div>
+  <script type="text/javascript" src="assets/index.js">
+
+  </script>
+</body>
+
 </html>

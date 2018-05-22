@@ -5,11 +5,37 @@ body {
   font-size: 16px;
   font-family: 'Roboto', helvetica, sans-serif;
 }
-.nav p{
+.nav p, .item-p{
   display: inline-block;
 }
-.nav{
+.item-p{
+  padding-right: 20px;
+}
+.nav, .center-me{
   text-align: center;
+}
+.center-me{
+  text-align: center;
+  padding:30px;
+
+}
+.split{
+  border-bottom: 2px solid #2B877D;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.summary{
+  border: 2px solid #2B877D;
+  font-weight: 900;
+  width: 300px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.budget-js{
+  text-align: center;
+  height:50px;
+  width: 70px;
 }
 .bigBox{
   border: 1px solid gray;
@@ -29,7 +55,7 @@ body {
   padding: 40px;
 }
 
-.move-list-item, .item-controls, p{
+.move-list-item, .item-controls{
   display: inline-block;
   padding-left: 20px;
 }
@@ -61,7 +87,7 @@ a{
   color:#2B877D !important;
 }
 
-input.item-js, input.value-js, input.add-item-js{
+input.name-js, input.value-js, input.add-item-js{
   height:30px;
 }
 .add-item-js{

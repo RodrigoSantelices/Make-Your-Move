@@ -36,7 +36,9 @@ body {
   background-color: #FFE8D7;
   border-radius: 3px;
 }
-
+.signup{
+  padding-top: 20px;
+}
 .inputs{
   display: block;
   margin-left: auto;
@@ -45,7 +47,7 @@ body {
   border: 2px solid #94F5EB;
   padding: 15px;
   border-radius: 3px;
-  color: #DCDDDB;
+  color: black;
   font-weight: bold;
 
 }

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const moveListSchema = mongoose.Schema({
   name:{type:String, required: true},
-  status: {type:Boolean, required: true},
+  status: String,
   value: String,
   location: String
 });
@@ -19,6 +19,7 @@ moveListSchema.methods.serialize = function(){
 };
 
 const MoveList = mongoose.model('MoveList', moveListSchema);
+
 module.exports = {MoveList};
 
 
