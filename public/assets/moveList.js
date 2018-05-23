@@ -1,34 +1,23 @@
 
-// this function will submit an item to the loaded list if it is properly filled out
+ function getItemIdFromElement(item) {
+  return $(item).closest('.item-element').data('item-id');
+};
 
-//adds Item lets make this post to an endpoint
+// DELETE Function
+function deleteMoveList() {
+  $(`.bigBox`).on('click', '.item-delete', function (event) {
+    console.log("delete");
+    event.preventDefault();
+    const id = getItemIdFromElement(event.currentTarget);
+    api.findAndDelete(id, function(moveItem){ //api not defined store not defined
+      store.findAndDelete(id);
+      getMoveList();
+    })
+  })
+
+}
 
 
-/*
-$(`.move-form`).submit(function (event) {
-  event.preventDefault();
-  console.log("ran")
-  const itemUnload = $(`.item-js`).val();
-  $(`.item-js`).val(" ");
-  const valueUnload = $(`.value-js`).val();
-  $(`.value-js`).val(" ");
-  $(`.unloaded-container`).append(
-    `<div class = "item-container"><div class="move-list-item"><p>${itemUnload}</p>
-    <p>${valueUnload}</div><div class="item-controls">
-          <label>Loaded?</label>
-          <input class= "loaded-js" type= "checkbox">
-      <button class="item-delete">
-          delete
-      </button>
-    </div></div>`);
-})
-*/
-// this function clears items out of the loaded or unloaded lists
-$(`.bigBox`).on('click', '.item-delete', function (event) {
-  event.preventDefault();
-  $(this).closest('.item-container').remove();
-
-})
 
 //this function takes a checked item from the unloaded list to the loaded list
 $(`.loaded-container`).on('click','item-load',function(event) {
@@ -40,7 +29,7 @@ function loadItem() {
     $.getJSON(MOVELIST_URL, function (moveLists) {
       console.log('rendering move list');
       var moveElement = moveLists.map(function (moveList) {
-        moveList.status = 1;
+        moveList.status = true;
 })
 })
 }
@@ -55,7 +44,7 @@ function unloadItem() {
     $.getJSON(MOVELIST_URL, function (moveLists) {
       console.log('rendering move list');
       var moveElement = moveLists.map(function (moveList) {
-        moveList.status = 0;
+        moveList.status = false;
 })
 })
 }
@@ -66,11 +55,11 @@ var MOVELIST_URL = serverBase + '/api/move';
 function getMoveList() {
   console.log('Retrieving move list')
   $.getJSON(MOVELIST_URL, function (moveLists) {
-    console.log('rendering move list');
+    console.log(moveLists);
     var moveElement = moveLists.map(function (moveList) {
      // var element = $();
      // element.attr('_id', moveList.id);
-     if(moveList.status === 1){
+     if(moveList.status === true){
       $(`.loaded-container`).append(
         `<div class = "item-container"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status`</p></div><div class="item-controls">
           <button class="item-unload">
@@ -129,7 +118,8 @@ $(function () {
     event.preventDefault();
     const list = {
       name: $(`.name-js`).val(),
-      value: $(`.value-js`).val()
+      value: $(`.value-js`).val(),
+      status: false
     }
     postMoveList(list);
   })
@@ -143,3 +133,9 @@ $(function () {
   getAndDisplayMoveList();
   console.log('final call should work');
 })
+
+function eventTrigger(){
+  deleteMoveList();
+}
+
+eventTrigger();

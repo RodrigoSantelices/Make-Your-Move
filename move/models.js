@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const moveListSchema = mongoose.Schema({
   name:{type:String, required: true},
-  status: String,
+  status: Boolean,
   value: String,
   location: String
 });

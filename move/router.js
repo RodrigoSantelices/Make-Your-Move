@@ -57,10 +57,11 @@ router.put('/:id', jsonParser, (req, res) =>{
           return res.status(400).send(message);
 }
     console.log(`Updating Move List item \`${req.params.id}\``);
-      const updatedItem = Recipes.update({
+      const updatedItem = MoveList.update({
         id: req.params.id,
         name: req.body.name,
-        ingredients: req.body.ingredients
+        value: req.body.value,
+        status: req.body.status
 });
 res.status(204).end();
 })
