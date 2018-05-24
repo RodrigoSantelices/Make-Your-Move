@@ -5,7 +5,9 @@ const moveListSchema = mongoose.Schema({
   name:{type:String, required: true},
   status: Boolean,
   value: String,
-  location: String
+  location: String,
+  user:{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
+
 });
 
 moveListSchema.methods.serialize = function(){
@@ -14,7 +16,8 @@ moveListSchema.methods.serialize = function(){
     name:this.name,
     value: this.value,
     location: this.location,
-    status: this.status
+    status: this.status,
+    user: this.user
   };
 };
 
