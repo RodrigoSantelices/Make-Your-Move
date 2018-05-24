@@ -85,25 +85,25 @@ function getMoveList() {
       // element.attr('_id', moveList.id);
       if (moveList.status === true) {
         $(`.loaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status`</p></div><div class="item-controls">
+          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
           <button class="item-unload">
               Unload
           </button>
           <button class="item-delete">
               delete
           </button>
-        </div></div>`);
+        </div></div></div>`);
       }
       else {
         $(`.unloaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + `</p></div><div class="item-controls">
+          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
         <button class="item-load">
             Load
         </button>
         <button class="item-delete">
             delete
         </button>
-      </div></div>`);
+      </div></div></div>`);
       }
 
       // return element;
@@ -111,17 +111,14 @@ function getMoveList() {
   });
 }
 
-// this function stays the same when we connect
-// to real API later
 
-
-//this function can stay the same
-
+// This function may be unnecessary
 function getAndDisplayMoveList() {
   getMoveList();
   console.log('getAndDisplayMoveList works');
 }
 
+// Posts to the database
 function postMoveList(list) {
   $.ajax({
     method: "post",
@@ -140,12 +137,14 @@ function postMoveList(list) {
   }
   )
 }
+// submit the form
 $(function () {
   $(`.move-form`).submit(function (event) {
     event.preventDefault();
     const list = {
       name: $(`.name-js`).val(),
       value: $(`.value-js`).val(),
+      location: $(`.location-js`).val(),
       status: false
     }
     postMoveList(list);

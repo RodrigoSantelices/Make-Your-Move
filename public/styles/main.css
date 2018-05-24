@@ -56,7 +56,6 @@ body {
 
 .move-list-item, .item-controls{
   display: inline-block;
-  padding-left: 20px;
 }
 h1,h2{
   text-align: center;
@@ -86,9 +85,32 @@ a{
   color:#2B877D !important;
 }
 
-input.name-js, input.value-js, input.add-item-js{
+input.name-js, input.value-js, input.add-item-js, input.location-js{
   height:30px;
 }
+
+.item-p, .item-controls{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+div.move-list-item{
+  width: 100%;
+  text-align: center;
+}
+
+.labels{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+input{
+  text-align: center;
+}
+.value-js{
+  width: 100px; 
+}
+
 .add-item-js{
   background-color: #BCE2E2;
   border-color: #2B877D;
