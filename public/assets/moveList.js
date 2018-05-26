@@ -1,7 +1,9 @@
 
 
 
-
+function getItemFromElement(item) {
+  return $(item).closest('.item-container').data('object-id');
+};
 function getItemIdFromElement(item) {
   return $(item).closest('.item-container').data('item-id');
 };
@@ -30,39 +32,38 @@ function deleteMoveList() {
 
 }
 
-
-
-//this function takes a checked item from the unloaded list to the loaded list
-$(`.loaded-container`).on('click', 'item-load', function (event) {
-  event.preventDefault();
-  unloadItem();
-})
+// Load Function
 
 function loadItem() {
+  $(`.bigBox`).on('click', '.item-load', function (event) {
+    console.log("Loading item start")
+    const id = getItemIdFromElement(event.currentTarget);
 
-  $.getJSON(MOVELIST_URL, function (moveLists) {
-    console.log('rendering move list');
-    var moveElement = moveLists.map(function (moveList) {
-      moveList.status = true;
-    })
+    $.ajax({
+      method: "PUT",
+      url: `/api/move/${id}`,
+      headers: {
+        "Authorization": "bearer " + localStorage.authToken
+        //"content-type": "application/json"    
+      },
+      data:{"name": "TEST",
+            "value": this.value,
+            "location": this.location,
+            "status": true}
+}).done(function (data, error) {
+      getMoveList();
+
+      if (error === "success") {
+
+      }
+      console.log(error, data)
+    }
+    )
+
   })
+
 }
 
-//this function takes a checked item from the unloaded list to the loaded list
-$(`.unloaded-container`).on('click', 'item-unload', function (event) {
-  event.preventDefault();
-  loadItem();
-})
-
-function unloadItem() {
-
-  $.getJSON(MOVELIST_URL, function (moveLists) {
-    console.log('rendering move list');
-    var moveElement = moveLists.map(function (moveList) {
-      moveList.status = false;
-    })
-  })
-}
 
 var serverBase = '//localhost:8080';
 var MOVELIST_URL = serverBase + '/api/move';
@@ -106,7 +107,11 @@ function getMoveList() {
       </div></div></div>`);
       }
 
+      //var moveMe = moveLists.map(function (moveList) {
+        //moveList.name;
+        //moveList.status;})
       // return element;
+         
     });
   });
 }
@@ -147,10 +152,14 @@ $(function () {
       location: $(`.location-js`).val(),
       status: false
     }
+    $(`.name-js`).val("");
+    $(`.value-js`).val("");
+    $(`.location-js`).val("");
     postMoveList(list);
   })
 
 })
+
 
 
 // on page load do this
@@ -162,6 +171,7 @@ $(function () {
 
 function eventTrigger() {
   deleteMoveList();
+  loadItem();
 }
 
 eventTrigger();

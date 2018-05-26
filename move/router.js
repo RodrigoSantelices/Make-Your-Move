@@ -41,39 +41,21 @@ router.post('/', jsonParser, jwtAuth, (req, res) => {
 // Delete item by id
 router.delete('/:id', jwtAuth, (req, res) => {
   MoveList.remove({ _id: req.params.id, user:req.user._id}).then(function (item) {
-    console.log(`Deleted move list item\`${req.params.ID}\``);
+    console.log(`Deleted move list item\`${req.params._id}\``);
     res.status(204).end();
   });
 });
 
-//edit feature pending
+//Load Router//Load Router
 router.put('/:id', jsonParser, jwtAuth, (req, res) => {
-  const requiredFields = ['name', 'value', 'status'];
-  for (let i = 0; i < requiredFields.length; i++) {
-    const field = requiredFields[i];
-    if (!(field in req.body)) {
-      const message = `Missing \`${field}\` in request body`
-      console.error(message);
-      return res.status(400).send(message);
-    }
-  }
-  if (req.params.id !== req.body.id) {
-    const message = (
-      `Request path id (${req.params.id}) and request body id `
-        `(${req.body.id}) must match`);
-    console.error(message);
-    return res.status(400).send(message);
-  }
-  console.log(`Updating Move List item \`${req.params.id}\``);
-  const updatedItem = MoveList.update({
-    id: req.params.id,
-    name: req.body.name,
-    value: req.body.value,
-    status: req.body.status
-  });
-  res.status(204).end();
+  MoveList.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
+    MoveList.findOne({_id:req.params.id}).then(function(list){
+      res.send(list);
+      console.log(`Updated move list item\`${req.params._id}\``);
+      res.status(204).end();
+    })
+  })
 })
-
 
 
 
