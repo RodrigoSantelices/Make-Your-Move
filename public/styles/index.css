@@ -6,17 +6,18 @@
 h1{
   font-weight: 600;
   font-size: 50px;
-  color: black;
+  color: #042037;
   text-align: center;
   padding-top: 40px;
 }
 h2{
   text-align: center;
+  color: #042037;
 }
 
 
 body {
-  background-color: #BCE2E2;
+  background-color: #BDD9EE;
   padding-left: 40px;
   padding-right: 40px;
   font-size: 16px;
