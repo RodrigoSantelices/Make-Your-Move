@@ -6,7 +6,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const { MoveList } = require('./models');
+const { SellList } = require('./models');
 const passport = require('passport');
 
 const jwtAuth = passport.authenticate('jwt', {session: false});
@@ -30,7 +30,7 @@ router.post('/', jsonParser, jwtAuth, (req, res) => {
   }
   
   const data = {...req.body, user: req.user._id}
-  const item = MoveList.create(data).then(function (item) {
+  const item = SellList.create(data).then(function (item) {
     res.status(201).json(item);
   }).catch(function (error) {
     console.log(error);
@@ -40,7 +40,7 @@ router.post('/', jsonParser, jwtAuth, (req, res) => {
 
 // Delete item by id
 router.delete('/:id', jwtAuth, (req, res) => {
-  MoveList.remove({ _id: req.params.id, user:req.user._id}).then(function (item) {
+  SellList.remove({ _id: req.params.id, user:req.user._id}).then(function (item) {
     console.log(`Deleted move list item\`${req.params._id}\``);
     res.status(204).end();
   });
@@ -48,8 +48,8 @@ router.delete('/:id', jwtAuth, (req, res) => {
 
 //Load Router//Load Router
 router.put('/:id', jsonParser, jwtAuth, (req, res) => {
-  MoveList.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
-    MoveList.findOne({_id:req.params.id}).then(function(list){
+  SellList.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
+    SellList.findOne({_id:req.params.id}).then(function(list){
       res.send(list);
       console.log(`Updated move list item\`${req.params._id}\``);
       res.status(204).end();

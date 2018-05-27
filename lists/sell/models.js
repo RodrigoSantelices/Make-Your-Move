@@ -1,7 +1,7 @@
 const uuid = require('uuid');
 const mongoose = require('mongoose');
 
-const moveListSchema = mongoose.Schema({
+const sellListSchema = mongoose.Schema({
   name:{type:String, required: true},
   status: Boolean,
   value: Number,
@@ -10,7 +10,7 @@ const moveListSchema = mongoose.Schema({
 
 });
 
-moveListSchema.methods.serialize = function(){
+sellListSchema.methods.serialize = function(){
   return {
     id: this.id,
     name: this.name,
@@ -21,7 +21,7 @@ moveListSchema.methods.serialize = function(){
   };
 };
 
-const MoveList = mongoose.model('MoveList', moveListSchema);
+const SellList = mongoose.model('SellList', sellListSchema);
 
-module.exports = {MoveList};
+module.exports = {SellList};
 
