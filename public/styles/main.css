@@ -1,9 +1,12 @@
 body {
-  background-color: #BCE2E2;
+  background-color: #BDD9EE;
   padding-left: 40px;
   padding-right: 40px;
   font-size: 16px;
   font-family: 'Roboto', helvetica, sans-serif;
+}
+h1, h2 {
+  color:#042037;
 }
 .nav p, .item-p{
   display: inline-block;
@@ -38,17 +41,34 @@ body {
   width: 70px;
 }
 .bigBox{
-  border: 1px solid gray;
-  background-color: #FFF8F3;
+  border: 1px solid #042037;
+}
+
+.unloaded-container.bigBox{
+  border-radius: 10px 10px 0 0;
+}
+
+
+.loaded-container.bigBox{
+  border-radius: 0 0 10px 10px;
 }
 
 .item-container{
-  border: 1px solid gray;
-  border-radius: 15px 15px 30px;
-  background-color: #2B877D;
+  border: 1px solid #042037;
+  border-radius: 15px 15px 30px 30px;
   font-size: 20px;
-  color: white;
   margin: 20px;
+}
+
+.unloaded-wrapper .item-container{
+  background-color: #AD82D6;
+  color: #18042C;
+  
+}
+.loaded-wrapper .item-container{
+  background-color: #AD82D6;
+  color: #18042C;
+
 }
 .move-form{
   padding: 40px;
@@ -64,25 +84,25 @@ h1,h2{
   text-align: center;
 }
 .unloaded-container{
-  background-color: #FFE8D7;
+  background-color: #D7BEF0;
 }
 .loaded-container{
-  background-color: #C1ECA5;
+  background-color: #E2FBC3;
 }
 
 .nav-button{
   height:50px;
   width: 100px;
-  background-color: #BCE2E2;
-  border-color: #2B877D;
+  background-color: #BDD9EE;
+  border-color: #042037;
   font-weight: 900;
 }
 .nav-button:hover{
-  border: 5px solid #2B877D;
+  border: 5px solid #3977A7;
 }
 a{
   text-decoration: none !important;
-  color:#2B877D !important;
+  color:#042037 !important;
 }
 
 input.name-js, input.value-js, input.add-item-js, input.location-js{
@@ -110,10 +130,36 @@ input{
 .value-js{
   width: 100px; 
 }
-
+/* BUTTONS*/
 .add-item-js{
-  background-color: #BCE2E2;
+  background-color: #BDD9EE;
   border-color: #2B877D;
   font-weight: 900;
   color:#2B877D;
+}
+
+.add-item-js{
+  background-color: #BDD9EE;
+  border-color: #2B877D;
+  font-weight: 900;
+  color:#2B877D;
+}
+
+.unloaded-container .item-load, .unloaded-container .item-delete{
+  background-color: #61239D;
+  border: none;
+  font-weight: 900;
+  color:#D2B4F0;
+  display: inline-block;
+  width: 90px;
+  height: 40px;
+  padding: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.item-load:hover, .item-delete:hover{
+  background-color: #D2B4F0;
+  color: #61239D;
 }

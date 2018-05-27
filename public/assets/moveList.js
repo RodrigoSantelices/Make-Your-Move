@@ -38,7 +38,7 @@ function loadItem() {
   $(`.bigBox`).on('click', '.item-load', function (event) {
     console.log("Loading item start")
     const id = getItemIdFromElement(event.currentTarget);
-
+    const data = {"status":true}
     $.ajax({
       method: "PUT",
       url: `/api/move/${id}`,
@@ -46,10 +46,7 @@ function loadItem() {
         "Authorization": "bearer " + localStorage.authToken
         //"content-type": "application/json"    
       },
-      data:{"name": "TEST",
-            "value": this.value,
-            "location": this.location,
-            "status": true}
+      data:JSON.stringify(data)
 }).done(function (data, error) {
       getMoveList();
 
@@ -87,23 +84,18 @@ function getMoveList() {
       if (moveList.status === true) {
         $(`.loaded-wrapper`).prepend(
           `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-          <button class="item-unload">
-              Unload
-          </button>
-          <button class="item-delete">
-              delete
-          </button>
+          <input class="item-unload" value="Unload">
+             
+          </input>
+          <input class="item-delete" value="Delete">
+          </input>
         </div></div></div>`);
       }
       else {
         $(`.unloaded-wrapper`).prepend(
           `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-        <button class="item-load">
-            Load
-        </button>
-        <button class="item-delete">
-            delete
-        </button>
+        <input class="item-load" value="Load"></input>
+        <input class="item-delete" value = "Delete"></input>
       </div></div></div>`);
       }
 
