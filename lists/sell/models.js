@@ -5,7 +5,6 @@ const sellListSchema = mongoose.Schema({
   name:{type:String, required: true},
   status: Boolean,
   value: Number,
-  location: String,
   user:{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
 
 });
@@ -15,7 +14,6 @@ sellListSchema.methods.serialize = function(){
     id: this.id,
     name: this.name,
     value: this.value,
-    location: this.location,
     status: this.status,
     user: this.user
   };

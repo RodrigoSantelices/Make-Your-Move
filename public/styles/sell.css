@@ -70,17 +70,17 @@ h1, h2 {
   color: #18042C;
 
 }
-.move-form{
+.sell-form{
   padding: 40px;
 }
 
-.move-list-item, .item-controls{
+.sell-list-item, .item-controls{
   display: inline-block;
 }
 h1,h2{
   text-align: center;
 }
-.move-form{
+.sell-form{
   text-align: center;
 }
 .unloaded-container{
@@ -114,7 +114,7 @@ input.name-js, input.value-js, input.add-item-js, input.location-js{
   padding-right: 30px;
 }
 
-div.move-list-item{
+div.sell-list-item{
   width: 100%;
   text-align: center;
 }
@@ -145,7 +145,7 @@ input{
   color:#2B877D;
 }
 
-.unloaded-container .item-load, .unloaded-container .item-delete{
+.unloaded-container .item-sell, .unloaded-container .item-delete{
   background-color: #61239D;
   border: none;
   font-weight: 900;
@@ -159,7 +159,7 @@ input{
   border-radius: 10px;
 }
 
-.item-load:hover, .item-delete:hover{
+.item-sell:hover, .item-delete:hover{
   background-color: #D2B4F0;
   color: #61239D;
 }

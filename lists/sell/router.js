@@ -13,7 +13,7 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 
 router.get('/', jwtAuth, (req, res) => {
   console.log(req.user);
-  MoveList.find({user:req.user._id}).then(function (list) {
+  SellList.find({user:req.user._id}).then(function (list) {
 
     res.json(list);
   })
@@ -41,7 +41,7 @@ router.post('/', jsonParser, jwtAuth, (req, res) => {
 // Delete item by id
 router.delete('/:id', jwtAuth, (req, res) => {
   SellList.remove({ _id: req.params.id, user:req.user._id}).then(function (item) {
-    console.log(`Deleted move list item\`${req.params._id}\``);
+    console.log(`Deleted sell list item\`${req.params._id}\``);
     res.status(204).end();
   });
 });
@@ -51,7 +51,7 @@ router.put('/:id', jsonParser, jwtAuth, (req, res) => {
   SellList.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
     SellList.findOne({_id:req.params.id}).then(function(list){
       res.send(list);
-      console.log(`Updated move list item\`${req.params._id}\``);
+      console.log(`Updated sell list item\`${req.params._id}\``);
       res.status(204).end();
     })
   })
