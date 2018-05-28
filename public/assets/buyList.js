@@ -1,25 +1,25 @@
 
 
-
+/*
 function getItemFromElement(item) {
   return $(item).closest('.item-container').data('object-id');
-};
+};*/
 function getItemIdFromElement(item) {
   return $(item).closest('.item-container').data('item-id');
 };
 
 // DELETE Function
-function deleteMoveList() {
+function deleteBuyList() {
   $(`.bigBox`).on('click', '.item-delete', function (event) {
     const id = getItemIdFromElement(event.currentTarget);
     $.ajax({
       method: "delete",
-      url: `/api/move/${id}`,
+      url: `/api/buy/${id}`,
       headers: {
         "Authorization": "bearer " + localStorage.authToken
       }
     }).done(function (data, error) {
-      getMoveList();
+      getBuyList();
 
       if (error === "success") {
 
@@ -29,26 +29,51 @@ function deleteMoveList() {
     )
 
   })
+  
 
 }
 
 // Load Function
 
 function loadItem() {
-  $(`.bigBox`).on('click', '.item-load', function (event) {
+  $(`.unloaded-container`).on('click', '.item-load', function (event) {
     console.log("Loading item start")
     const id = getItemIdFromElement(event.currentTarget);
-    const data = {"status":true}
+    const data = {"status":true};
     $.ajax({
       method: "PUT",
-      url: `/api/move/${id}`,
+      url: `/api/buy/${id}`,
       headers: {
-        "Authorization": "bearer " + localStorage.authToken
-        //"content-type": "application/json"    
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
       },
       data:JSON.stringify(data)
 }).done(function (data, error) {
-      getMoveList();
+      getBuyList();
+
+      if (error === "success") {
+
+      }
+      console.log(error, data)
+    }
+    )
+
+  })
+  //unloads
+  $(`.loaded-container`).on('click', '.item-unload', function (event) {
+    console.log("unLoading item start")
+    const id = getItemIdFromElement(event.currentTarget);
+    const data = {"status":false};
+    $.ajax({
+      method: "PUT",
+      url: `/api/buy/${id}`,
+      headers: {
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
+      },
+      data:JSON.stringify(data)
+}).done(function (data, error) {
+      getBuyList();
 
       if (error === "success") {
 
@@ -59,43 +84,43 @@ function loadItem() {
 
   })
 
+
+
 }
 
 
 var serverBase = '//localhost:8080';
-var MOVELIST_URL = serverBase + '/api/move';
+var BUYLIST_URL = serverBase + '/api/buy';
 
-function getMoveList() {
+function getBuyList() {
   $(`.loaded-wrapper`).empty();
   $(`.unloaded-wrapper`).empty();
   console.log('Retrieving move list')
   $.ajax({
-    url:MOVELIST_URL,
+    url:BUYLIST_URL,
     method: "GET",
     headers: {
       "Authorization": "bearer " + localStorage.authToken
     }
   
-  }).done(function (moveLists) {
-    console.log(moveLists);
-    var moveElement = moveLists.map(function (moveList) {
+  }).done(function (buyLists) {
+    console.log(buyLists);
+    var buyElement = buyLists.map(function (buyList) {
       // var element = $();
-      // element.attr('_id', moveList.id);
-      if (moveList.status === true) {
+      // element.attr('_id', buyList.id);
+      if (buyList.status === true) {
         $(`.loaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-          <input class="item-unload" value="Unload">
-             
-          </input>
-          <input class="item-delete" value="Delete">
-          </input>
+          `<div class = "item-container" data-item-id="${buyList._id}"><div class="buy-list-item"><p class= "item-p">` + buyList.name + `</p><p class= "item-p">$` + buyList.value + `</p><p class= "item-p">` + buyList.link + `</p><div class="item-controls">
+          <input class="item-delete" value="ERASE" type="button"></input>
+          <input class="item-unload" value="RETURN" type="button"></input>
+          
         </div></div></div>`);
       }
       else {
         $(`.unloaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-        <input class="item-load" value="Load"></input>
-        <input class="item-delete" value = "Delete"></input>
+          `<div class = "item-container" data-item-id="${buyList._id}"><div class="buy-list-item"><p class= "item-p">` + buyList.name + `</p><p class= "item-p">$` + buyList.value + `</p><p class= "item-p">` + buyList.link + `</a></p><div class="item-controls">
+          <input class="item-delete" value = "ERASE" type="button"></input>
+          <input class="item-load" value="PURCHASED" type="button"></input>
       </div></div></div>`);
       }
 
@@ -110,23 +135,23 @@ function getMoveList() {
 
 
 // This function may be unnecessary
-function getAndDisplayMoveList() {
-  getMoveList();
-  console.log('getAndDisplayMoveList works');
+function getAndDisplayBuyList() {
+  getBuyList();
+  console.log('getAndDisplayBuyList works');
 }
 
 // Posts to the database
-function postMoveList(list) {
+function postBuyList(list) {
   $.ajax({
     method: "post",
-    url: "/api/move",
+    url: "/api/buy",
     data: JSON.stringify(list),
     headers: {
       "Authorization": "bearer " + localStorage.authToken,
       "content-type": "application/json"
     }
   }).done(function (data, error) {
-    getMoveList();
+    getBuyList();
     if (error === "success") {
 
     }
@@ -136,18 +161,18 @@ function postMoveList(list) {
 }
 // submit the form
 $(function () {
-  $(`.move-form`).submit(function (event) {
+  $(`.buy-form`).submit(function (event) {
     event.preventDefault();
     const list = {
       name: $(`.name-js`).val(),
       value: $(`.value-js`).val(),
-      location: $(`.location-js`).val(),
+      link: $(`.link-js`).val(),
       status: false
     }
     $(`.name-js`).val("");
     $(`.value-js`).val("");
-    $(`.location-js`).val("");
-    postMoveList(list);
+    $(`.link-js`).val("");
+    postBuyList(list);
   })
 
 })
@@ -157,13 +182,14 @@ $(function () {
 // on page load do this
 
 $(function () {
-  getAndDisplayMoveList();
+  getAndDisplayBuyList();
   console.log('final call should work');
 })
 
 function eventTrigger() {
-  deleteMoveList();
+  deleteBuyList();
   loadItem();
+  
 }
 
 eventTrigger();

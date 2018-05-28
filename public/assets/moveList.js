@@ -1,9 +1,9 @@
 
 
-
+/*
 function getItemFromElement(item) {
   return $(item).closest('.item-container').data('object-id');
-};
+};*/
 function getItemIdFromElement(item) {
   return $(item).closest('.item-container').data('item-id');
 };
@@ -29,22 +29,23 @@ function deleteMoveList() {
     )
 
   })
+  
 
 }
 
 // Load Function
 
 function loadItem() {
-  $(`.bigBox`).on('click', '.item-load', function (event) {
+  $(`.unloaded-container`).on('click', '.item-load', function (event) {
     console.log("Loading item start")
     const id = getItemIdFromElement(event.currentTarget);
-    const data = {"status":true}
+    const data = {"status":true};
     $.ajax({
       method: "PUT",
       url: `/api/move/${id}`,
       headers: {
-        "Authorization": "bearer " + localStorage.authToken
-        //"content-type": "application/json"    
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
       },
       data:JSON.stringify(data)
 }).done(function (data, error) {
@@ -58,6 +59,32 @@ function loadItem() {
     )
 
   })
+  //unloads
+  $(`.loaded-container`).on('click', '.item-unload', function (event) {
+    console.log("unLoading item start")
+    const id = getItemIdFromElement(event.currentTarget);
+    const data = {"status":false};
+    $.ajax({
+      method: "PUT",
+      url: `/api/move/${id}`,
+      headers: {
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
+      },
+      data:JSON.stringify(data)
+}).done(function (data, error) {
+      getMoveList();
+
+      if (error === "success") {
+
+      }
+      console.log(error, data)
+    }
+    )
+
+  })
+
+
 
 }
 
@@ -83,19 +110,17 @@ function getMoveList() {
       // element.attr('_id', moveList.id);
       if (moveList.status === true) {
         $(`.loaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-          <input class="item-unload" value="Unload">
-             
-          </input>
-          <input class="item-delete" value="Delete">
-          </input>
+          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">$` + moveList.value + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
+          <input class="item-delete" value="ERASE" type="button"></input>
+          <input class="item-unload" value="UNPACK" type="button"></input>
         </div></div></div>`);
       }
       else {
         $(`.unloaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">` + moveList.value + moveList.status + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
-        <input class="item-load" value="Load"></input>
-        <input class="item-delete" value = "Delete"></input>
+          `<div class = "item-container" data-item-id="${moveList._id}"><div class="move-list-item"><p class= "item-p">` + moveList.name + `</p><p class= "item-p">$` + moveList.value + `</p><p class= "item-p">` + moveList.location + `</p><div class="item-controls">
+          <input class="item-delete" value = "ERASE" type="button"></input>
+          <input class="item-load" value="PACK" type="button"></input>
+        
       </div></div></div>`);
       }
 
@@ -164,6 +189,7 @@ $(function () {
 function eventTrigger() {
   deleteMoveList();
   loadItem();
+  
 }
 
 eventTrigger();

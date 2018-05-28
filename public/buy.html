@@ -15,7 +15,7 @@
     <h2>Get organized and get moving!</h2>
     <div class="nav">
       <button class="home-button nav-button">
-        <a href="../home.html">Homepage</a>
+          <a href="../home.html">Homepage</a>
       </button>
       <button class="move-button nav-button">
         <a href="../move.html">Move List</a>
@@ -23,16 +23,22 @@
       <button class="sell-button nav-button">
         <a href="../sell.html">Sell List</a>
       </button>
+      <button class="buy-button nav-button current">
+          <a href="../buy.html">Buy List</a>
+      </button>
+      <button class="log-out nav-button">Log Out
+      </button>
     </div>
   </header>
-  <div class="move-list-js">
-    <form class="move-form" action="move.html" method="post">
+  </header>
+  <div class="buy-list-js">
+    <form class="buy-form" action="buy.html" method="post">
       <label for="item" class="labels">Item</label>
       <input type="text" class="name-js" placeholder="What is it?">
       <label for="item" class="labels">Value</label>
       <input type="number" class="value-js" placeholder="What's it worth?">
-      <label for="item" class="labels">Location</label>
-      <input type="text" class="location-js" placeholder="Where did I put it?">
+      <label for="item" class="labels">Link</label>
+      <input type="text" class="link-js" placeholder="Where to buy?">
       <input class="add-item-js" type="submit"></input>
     </form>
     <div class="unloaded-container bigBox">
@@ -41,7 +47,7 @@
 
       </div>
     </div>
-    <script type="text/javascript" src="assets/buyList.js"></script>
+    
     <div class="loaded-container bigBox">
       <h2>Purchased!</h2>
       <div class = "loaded-wrapper">
@@ -50,7 +56,8 @@
     </div>
 
   </div>
-
+  <script type="text/javascript" src="assets/buyList.js"></script>
+  <script type="text/javascript" src="assets/home.js"></script>
 </body>
 
 </html>

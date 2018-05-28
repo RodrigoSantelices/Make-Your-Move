@@ -66,8 +66,8 @@ h1, h2 {
   
 }
 .loaded-wrapper .item-container{
-  background-color: #AD82D6;
-  color: #18042C;
+  background-color: #9FE945;
+  color: #042037;
 
 }
 .sell-form{
@@ -98,7 +98,10 @@ h1,h2{
   font-weight: 900;
 }
 .nav-button:hover{
-  border: 5px solid #3977A7;
+  border: 5px solid #F3F9FE;
+}
+.current{
+  background-color: #F3F9FE !important;
 }
 a{
   text-decoration: none !important;
@@ -149,9 +152,9 @@ input{
   background-color: #61239D;
   border: none;
   font-weight: 900;
-  color:#D2B4F0;
+  color:white;
   display: inline-block;
-  width: 90px;
+  width: 150px;
   height: 40px;
   padding: 0 20px;
   text-align: center;
@@ -159,7 +162,36 @@ input{
   border-radius: 10px;
 }
 
-.item-sell:hover, .item-delete:hover{
+.loaded-container .item-sell:hover, .loaded-container .item-delete:hover{
   background-color: #D2B4F0;
   color: #61239D;
+}
+
+
+.loaded-container .item-sold, .loaded-container .item-delete{
+  background-color: #4D820B;
+  border: none;
+  font-weight: 900;
+  color:white;
+  display: inline-block;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0 20px;
+  
+}
+.loaded-container .item-controls{
+  margin-right: 0px;
+}
+.loaded-container .item-sold:hover, .loaded-container .item-delete:hover{
+  background-color: #C8EF99;
+  color: #4D820B;
+}
+div.sell-list-item{
+  width: 100%;
+}
+.item-p{
+  width: 90px;;
 }

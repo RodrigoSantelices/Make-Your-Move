@@ -14,16 +14,21 @@
     <h1>Make Your Move</h1>
     <h2>Get organized and get moving!</h2>
     <div class="nav">
-      <button class="home-button nav-button">
-        <a href="../home.html">Homepage</a>
-      </button>
-      <button class="move-button nav-button">
-        <a href="../move.html">Move List</a>
-      </button>
-      <button class="buy-button nav-button">
-        <a href="../buy.html">Buy List</a>
-      </button>
-    </div>
+        <button class="home-button nav-button">
+            <a href="../home.html">Homepage</a>
+        </button>
+        <button class="move-button nav-button">
+          <a href="../move.html">Move List</a>
+        </button>
+        <button class="sell-button nav-button current">
+          <a href="../sell.html">Sell List</a>
+        </button>
+        <button class="buy-button nav-button">
+            <a href="../buy.html">Buy List</a>
+        </button>
+        <button class="log-out nav-button">Log Out
+        </button>
+      </div>
   </header>
   <div class="sell-list-js">
     <form class="sell-form" action="sell.html" method="post">
@@ -40,7 +45,7 @@
 
       </div>
     </div>
-    <script type="text/javascript" src="assets/sellList.js"></script>
+    
     <div class="loaded-container bigBox">
       <h2>Sold!</h2>
       <div class = "loaded-wrapper">
@@ -49,7 +54,8 @@
     </div>
 
   </div>
-
+  <script type="text/javascript" src="assets/sellList.js"></script>
+  <script type="text/javascript" src="assets/home.js"></script>
 </body>
 
 </html>

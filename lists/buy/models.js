@@ -5,7 +5,7 @@ const buyListSchema = mongoose.Schema({
   name:{type:String, required: true},
   status: Boolean,
   value: Number,
-  location: String,
+  link: String,
   user:{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
 
 });
@@ -15,7 +15,7 @@ buyListSchema.methods.serialize = function(){
     id: this.id,
     name: this.name,
     value: this.value,
-    location: this.location,
+    link: this.link,
     status: this.status,
     user: this.user
   };

@@ -35,20 +35,20 @@ function deleteSellList() {
 // Load Function
 
 function sellItem() {
-  $(`.bigBox`).on('click', '.item-load', function (event) {
-    console.log("Loading item start")
+  $(`.bigBox`).on('click', '.item-sell', function (event) {
+    console.log("Selling item start")
     const id = getItemIdFromElement(event.currentTarget);
-    const data = {"status":true}
+    const data = {"status":true};
     $.ajax({
       method: "PUT",
-      url: `/api/move/${id}`,
+      url: `/api/sell/${id}`,
       headers: {
-        "Authorization": "bearer " + localStorage.authToken
-        //"content-type": "application/json"    
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
       },
       data:JSON.stringify(data)
 }).done(function (data, error) {
-      getMoveList();
+      getSellList();
 
       if (error === "success") {
 
@@ -58,7 +58,30 @@ function sellItem() {
     )
 
   })
+  //take off sold list
+  $(`.bigBox`).on('click', '.item-sold', function (event) {
+    console.log("Selling item start")
+    const id = getItemIdFromElement(event.currentTarget);
+    const data = {"status":false};
+    $.ajax({
+      method: "PUT",
+      url: `/api/sell/${id}`,
+      headers: {
+        "Authorization": "bearer " + localStorage.authToken,
+        "content-type": "application/json"    
+      },
+      data:JSON.stringify(data)
+}).done(function (data, error) {
+      getSellList();
 
+      if (error === "success") {
+
+      }
+      console.log(error, data)
+    }
+    )
+
+  })
 }
 
 let totalSale = 0;
@@ -90,19 +113,19 @@ function getSellList() {
       // element.attr('_id', sellList.id);
       if (sellList.status === true) {
         $(`.loaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${sellList._id}"><div class="sell-list-item"><p class= "item-p">` + sellList.name + `</p><p class= "item-p">` + sellList.value + sellList.status + `</p><div class="item-controls">
-          <input class="item-sold" value="Not Sold">
+          `<div class = "item-container" data-item-id="${sellList._id}"><div class="sell-list-item"><p class= "item-p">` + sellList.name + `</p><p class= "item-p">$` + sellList.value + `</p><div class="item-controls">
+          <input class="item-sold" value="NOT SOLD" type="button">
              
           </input>
-          <input class="item-delete" value="Erase">
+          <input class="item-delete" value="ERASE" type="button">
           </input>
         </div></div></div>`);
       }
       else {
         $(`.unloaded-wrapper`).prepend(
-          `<div class = "item-container" data-item-id="${sellList._id}"><div class="sell-list-item"><p class= "item-p">` + sellList.name + `</p><p class= "item-p">` + sellList.value + sellList.status + `</p><div class="item-controls">
-        <input class="item-sell" value="SOLD"></input>
-        <input class="item-delete" value = "ERASE"></input>
+          `<div class = "item-container" data-item-id="${sellList._id}"><div class="sell-list-item"><p class= "item-p">` + sellList.name + `</p><p class= "item-p">$` + sellList.value + `</p><div class="item-controls">
+        <input class="item-sell" value="SOLD" type="button"></input>
+        <input class="item-delete" value = "ERASE" type="button"></input>
       </div></div></div>`);
       }
        

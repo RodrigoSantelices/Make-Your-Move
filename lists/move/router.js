@@ -46,7 +46,7 @@ router.delete('/:id', jwtAuth, (req, res) => {
   });
 });
 
-//Load Router//Load Router
+//Load Router/unLoad Router
 router.put('/:id', jsonParser, jwtAuth, (req, res) => {
   MoveList.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
     MoveList.findOne({_id:req.params.id}).then(function(list){
