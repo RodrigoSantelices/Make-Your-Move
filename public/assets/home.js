@@ -6,6 +6,67 @@ $(function () {
     })
 })
 
+//get budget
+var BUDGET_URL = serverBase + '/api/budget';
+
+function getBudget() {
+  $(`.budget`).empty();
+  console.log('Retrieving move list')
+  $.ajax({
+    url:BUDGET_URL,
+    method: "GET",
+    headers: {
+      "Authorization": "bearer " + localStorage.authToken
+    }
+  
+  }).done(function (budgetVal) {
+    console.log(budgetVal.budget);
+    
+     
+    });
+  };
+
+
+
+// This function may be unnecessary
+function getAndDisplayBudget() {
+  getBudget();
+  console.log('getAndDisplayBudget works');
+}
+
+
+//post budget
+function postBudget(list) {
+  $.ajax({
+    method: "post",
+    url: "/api/budget",
+    data: JSON.stringify(budget),
+    headers: {
+      "Authorization": "bearer " + localStorage.authToken,
+      "content-type": "application/json"
+    }
+  }).done(function (data, error) {
+    getBudget();
+    if (error === "success") {
+
+    }
+    console.log(error, data)
+  }
+  )
+}
+// submit the form
+$(function () {
+  $(`.budget-form`).submit(function (event) {
+    event.preventDefault();
+      const list = {budget: $(`.budget-js`).val(),}
+      
+    $(`.budget-js`).val("");
+
+    postMoveList(list);
+  })
+
+})
+
 
 // Buy Cost for the summary
 
@@ -69,6 +130,11 @@ function getSellProfit() {
     });
   }
   
+  $(function () {
+    getAndDisplayBudget();
+    console.log('final call should work');
+  })
+
   function eventTrigger() {
     getBuyCost();
     //getSellProfit();

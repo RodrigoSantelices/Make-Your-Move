@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
- 
+
   <link href="styles/move.css" rel='stylesheet' type="text/css">
   <title></title>
 </head>
@@ -14,28 +14,32 @@
     <h1>Make Your Move</h1>
     <h2>Get organized and get moving!</h2>
     <div class="nav">
-        <button class="home-button nav-button current">
-            <a href="../home.html">Homepage</a>
-        </button>
-        <button class="move-button nav-button">
-          <a href="../move.html">Move List</a>
-        </button>
-        <button class="sell-button nav-button">
-          <a href="../sell.html">Sell List</a>
-        </button>
-        <button class="buy-button nav-button">
-            <a href="../buy.html">Buy List</a>
-        </button>
-        <button class="log-out nav-button">Log Out
-        </button>
-      </div>
+      <button class="home-button nav-button current">
+        <a href="../home.html">Homepage</a>
+      </button>
+      <button class="move-button nav-button">
+        <a href="../move.html">Move List</a>
+      </button>
+      <button class="sell-button nav-button">
+        <a href="../sell.html">Sell List</a>
+      </button>
+      <button class="buy-button nav-button">
+        <a href="../buy.html">Buy List</a>
+      </button>
+      <button class="log-out nav-button">Log Out
+      </button>
+    </div>
   </header>
 
   <div class="center-me">Pick from one of the lists above and Make Your Move!</div>
   <div class="summary">
     <div class="split">
-      <p>Set Your Budget</p>
-      <input type="number" class="budget-js" placeholder="Budget">
+      <form class="budget-form" action="move.html" method="post">
+        <p>Set Your Budget</p>
+        <input type="number" class="budget-js" placeholder="Budget">
+        <input class="add-budget-js" type="submit"></input>
+      </form>
+
     </div>
     <div class="split">
       <p>Balance (Budget + Sell - Buy)</p>
@@ -47,14 +51,6 @@
     <div class="split">
       <p>Total Items</p>
       <p>100</p>
-    </div>
-    <div class="split">
-      <p>Items Loaded</p>
-      <p>30</p>
-    </div>
-    <div class="split">
-      <p>Items Unloaded</p>
-      <p>70</p>
     </div>
   </div>
   <script type="text/javascript" src="assets/moveList.js"></script>

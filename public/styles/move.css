@@ -30,7 +30,7 @@ h1, h2 {
 .summary{
   border: 2px solid #042037;
   font-weight: 900;
-  width: 300px;
+  width: 500px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -196,4 +196,9 @@ input{
 }
 .log-out{
   cursor: pointer;
+}
+
+.add-budget-js{
+  height:56px;
+  width:76px;
 }
