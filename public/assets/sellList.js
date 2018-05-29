@@ -84,7 +84,7 @@ function sellItem() {
   })
 }
 
-let totalSale = 0;
+let sale = 0;
 var serverBase = '//localhost:8080';
 var SELLLIST_URL = serverBase + '/api/sell';
 
@@ -106,9 +106,9 @@ function getSellList() {
       let sum=0;
       for (let i = 0; i < sellLists.length; i++) {
         sum += sellLists[i].value;}
-        totalSale = sum;
+        sale = sum;
         $(`.sell-total`).empty();
-        $(`.sell-total`).append(`<div class="total-sale">Total Sales: $ ${totalSale}</div>`)
+        $(`.sell-total`).append(`<div class="total-sale">Total Sales: $ ${sale}</div>`)
       // var element = $();
       // element.attr('_id', sellList.id);
       if (sellList.status === true) {

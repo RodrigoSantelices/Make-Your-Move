@@ -19,7 +19,7 @@ router.get('/', jwtAuth, (req, res) => {
   })
 })
 router.post('/', jsonParser, jwtAuth, (req, res) => {
-  const requiredFields = ['name', 'value'];
+  const requiredFields = ['budget'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -38,13 +38,6 @@ router.post('/', jsonParser, jwtAuth, (req, res) => {
 
 })
 
-// Delete item by id
-router.delete('/:id', jwtAuth, (req, res) => {
-  Budget.remove({ _id: req.params.id, user:req.user._id}).then(function (item) {
-    console.log(`Deleted move list item\`${req.params._id}\``);
-    res.status(204).end();
-  });
-});
 
 //Load Router//Load Router
 router.put('/:id', jsonParser, jwtAuth, (req, res) => {

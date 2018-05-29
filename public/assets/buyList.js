@@ -88,7 +88,7 @@ function loadItem() {
 
 }
 
-
+let cost = 0;
 var serverBase = '//localhost:8080';
 var BUYLIST_URL = serverBase + '/api/buy';
 
@@ -104,10 +104,15 @@ function getBuyList() {
     }
   
   }).done(function (buyLists) {
+    
+    let sum=0;
+    for (let i = 0; i < buyLists.length; i++) {
+      sum += buyLists[i].value;}
+      cost = sum;
+      $(`.buy-total`).empty();
+      $(`.buy-total`).append(`<div class="total-sale">Total Cost: $ ${cost}</div>`)
     console.log(buyLists);
     var buyElement = buyLists.map(function (buyList) {
-      // var element = $();
-      // element.attr('_id', buyList.id);
       if (buyList.status === true) {
         $(`.loaded-wrapper`).prepend(
           `<div class = "item-container" data-item-id="${buyList._id}"><div class="buy-list-item"><p class= "item-p">` + buyList.name + `</p><p class= "item-p">$` + buyList.value + `</p><p class= "item-p">` + buyList.link + `</p><div class="item-controls">

@@ -194,3 +194,6 @@ input{
   background-color: #C8EF99;
   color: #4D820B;
 }
+.log-out{
+  cursor: pointer;
+}

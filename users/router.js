@@ -10,6 +10,7 @@ const jsonParser = bodyParser.json();
 
 // Post to register a new user
 router.post('/', jsonParser, (req, res) => {
+  
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -101,6 +102,7 @@ router.post('/', jsonParser, (req, res) => {
   return User.find({username})
     .count()
     .then(count => {
+  
       if (count > 0) {
         // There is an existing user with the same username
         return Promise.reject({
@@ -122,6 +124,7 @@ router.post('/', jsonParser, (req, res) => {
       });
     })
     .then(user => {
+      console.log("user creating");
       return res.status(201).json(user.serialize());
     })
     .catch(err => {

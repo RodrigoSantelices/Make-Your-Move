@@ -195,3 +195,6 @@ div.buy-list-item{
 .item-p{
   width: 90px;;
 }
+.log-out{
+  cursor: pointer;
+}

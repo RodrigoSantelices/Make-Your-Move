@@ -2,10 +2,7 @@ const uuid = require('uuid');
 const mongoose = require('mongoose');
 
 const budgetSchema = mongoose.Schema({
-  name:{type:String, required: true},
-  status: Boolean,
-  value: Number,
-  location: String,
+  budget:{type: Number, required: true},
   user:{ type: mongoose.Schema.Types.ObjectId, ref: "User" }
 
 });
@@ -13,10 +10,7 @@ const budgetSchema = mongoose.Schema({
 budgetSchema.methods.serialize = function(){
   return {
     id: this.id,
-    name: this.name,
-    value: this.value,
-    location: this.location,
-    status: this.status,
+    budget: this.budget,
     user: this.user
   };
 };
