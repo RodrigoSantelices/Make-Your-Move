@@ -44,7 +44,7 @@ router.put('/:id', jsonParser, jwtAuth, (req, res) => {
   Budget.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
     Budget.findOne({_id:req.params.id}).then(function(list){
       res.send(list);
-      console.log(`Updated move list item\`${req.params._id}\``);
+      console.log(`Updated budget item\`${req.params._id}\``);
       res.status(204).end();
     })
   })

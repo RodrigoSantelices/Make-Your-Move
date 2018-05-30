@@ -7,11 +7,12 @@ $(function () {
 })
 
 //get budget
+var serverBase = '//localhost:8080';
 var BUDGET_URL = serverBase + '/api/budget';
-
+let budget= 0;
 function getBudget() {
   $(`.budget`).empty();
-  console.log('Retrieving move list')
+  console.log('Retrieving budget list')
   $.ajax({
     url:BUDGET_URL,
     method: "GET",
@@ -20,7 +21,11 @@ function getBudget() {
     }
   
   }).done(function (budgetVal) {
-    console.log(budgetVal.budget);
+    budget = budgetVal.budget
+    console.log(budgetVal);
+    $(`.budget`).empty();
+    $(`.budget`).append(`<p>Budget: $ ${budget}</p>`)
+    getSellProfit();
     
      
     });
@@ -29,10 +34,7 @@ function getBudget() {
 
 
 // This function may be unnecessary
-function getAndDisplayBudget() {
-  getBudget();
-  console.log('getAndDisplayBudget works');
-}
+
 
 
 //post budget
@@ -40,7 +42,7 @@ function postBudget(list) {
   $.ajax({
     method: "post",
     url: "/api/budget",
-    data: JSON.stringify(budget),
+    data: JSON.stringify(list),
     headers: {
       "Authorization": "bearer " + localStorage.authToken,
       "content-type": "application/json"
@@ -58,11 +60,11 @@ function postBudget(list) {
 $(function () {
   $(`.budget-form`).submit(function (event) {
     event.preventDefault();
-      const list = {budget: $(`.budget-js`).val(),}
+      const list = {budget: $(`.budget-js`).val()}
       
     $(`.budget-js`).val("");
 
-    postMoveList(list);
+    postBudget(list);
   })
 
 })
@@ -71,7 +73,7 @@ $(function () {
 // Buy Cost for the summary
 
 let totalCost = 0;
-var serverBase = '//localhost:8080';
+
 var BUYLIST_URL = serverBase + '/api/buy';
 
 function getBuyCost() {
@@ -92,6 +94,7 @@ function getBuyCost() {
       sum += buyLists[i].value;}
       totalCost = sum;
       getSellProfit();
+
       $(`.buy`).empty();
       $(`.buy`).append(`<p>Buy Cost: $ ${totalCost}</p>`)
 
@@ -129,11 +132,7 @@ function getSellProfit() {
       });
     });
   }
-  
-  $(function () {
-    getAndDisplayBudget();
-    console.log('final call should work');
-  })
+
 
   function eventTrigger() {
     getBuyCost();
