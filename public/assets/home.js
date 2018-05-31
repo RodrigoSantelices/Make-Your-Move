@@ -21,8 +21,9 @@ function getBudget() {
     }
   
   }).done(function (budgetVal) {
-    budget = budgetVal.budget
-    console.log(budgetVal);
+    const lastBudget = budgetVal[budgetVal.length-1]
+    budget = lastBudget.budget
+    //console.log(budgetVal);
     $(`.budget`).empty();
     $(`.budget`).append(`<p>Budget: $ ${budget}</p>`)
     getSellProfit();
@@ -124,7 +125,7 @@ function getSellProfit() {
         for (let i = 0; i < sellLists.length; i++) {
           sum += sellLists[i].value;}
           totalSale = sum;
-          let bal = totalSale - totalCost;
+          let bal = budget + totalSale - totalCost;
           $(`.balance`).empty();
           $(`.balance`).append(`<div class="bal">Balance: $ ${bal}</div>`)  
           $(`.sell`).empty();
