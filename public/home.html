@@ -1,31 +1,41 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <link href="styles/move.css" rel='stylesheet' type="text/css">
-  <title></title>
+  <title>Home Page / Budget</title>
 </head>
 
 <body>
-  <header role="banner">
-    <h1>Make Your Move</h1>
-    <h2>Get organized and get moving!</h2>
+    <header class="banner">
+        <div class="row">
+          <div class="col-12">
+            <h1>Make Your Move</h1>
+            <h2>Get organized and get moving!</h2>
+          </div>
+        </div>
     <div class="nav">
+     
       <button class="home-button nav-button current">
         <a href="../home.html">Homepage</a>
       </button>
+      
       <button class="move-button nav-button">
         <a href="../move.html">Move List</a>
       </button>
+   
+   
       <button class="sell-button nav-button">
         <a href="../sell.html">Sell List</a>
       </button>
       <button class="buy-button nav-button">
         <a href="../buy.html">Buy List</a>
       </button>
+  
+  
       <button class="log-out nav-button">Log Out
       </button>
     </div>
@@ -42,11 +52,13 @@
 
     </div>
     <div class="split">
-      <p>Balance (Budget + Sell - Buy)</p>
-      <div class="budget"></div>
-      <div class="sell"></div>
-      <div class="buy"></div>
-      <div class="balance"></div>
+      <div class="budget"><p>Budget: ?</p></div>
+      <p class="operator">+</p>
+      <div class="sell"><p>Sell Profit: ?</p></div>
+      <p class="operator">-</p>
+      <div class="buy"><p>Buy Cost: ?</p></div>
+      <p class="operator">=</p>
+      <div class="balance"><p>Balance: ?</p></div>
     </div>
     <!--<div class="split">
       <p>Total Items</p>

@@ -1,16 +1,18 @@
 * {
   box-sizing: border-box;
+  overflow: hidden;
 }
-
 
 h1{
-  font-weight: 600;
   font-size: 50px;
+  margin-bottom: 5px;
   color: #042037;
   text-align: center;
-  padding-top: 40px;
+ 
 }
 h2{
+  font-size: 20px;
+  margin-top: 0px;
   text-align: center;
   color: #042037;
 }
@@ -19,10 +21,8 @@ h2{
 body {
  
   background: linear-gradient(#D2B4F0 ,#C8EF99) no-repeat;
-  padding-left: 40px;
-  padding-right: 40px;
   font-size: 16px;
-  font-family: 'Roboto', helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .logo{
   display: block;
@@ -32,25 +32,36 @@ body {
   margin-right: auto;
 }
 .logBox{
-  width: 400px;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #FFE8D7;
+  background-color:white;
   border-radius: 3px;
 }
 .signup{
   padding-top: 20px;
 }
+@media only screen and (max-width:500px){
+ .logBox{
+  width:240px;
+
+ }
+  .inputs{
+    width:150px;
+  }
+}
 .inputs{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 286px;
+  width: 200px;
   border: 2px solid #94F5EB;
   padding: 15px;
   border-radius: 3px;
   color: black;
   font-weight: bold;
+  background-color: #D2B4F0;
+  margin-bottom:5px;
 
 }
 .labels{
@@ -63,19 +74,19 @@ button{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 320px;
+  width: 200px;
   height: 55px;
-  border: 2px solid #2B877D;
+  border: 2px solid #D2B4F0;
   border-radius: 3px;
-  background-color: #2B877D;
-  color: white;
+  background-color: #D2B4F0;
+  color: black;
   font-weight: bold;
   font-size: 22px;
 }
 
 button:hover{
-  background-color: #2B877D;
-  border: 2px solid #2B877D;
+  background-color: #C8EF99;
+  border: 2px solid #C8EF99;
   -webkit-transition: background 0.1s;
   -moz-transition: background 0.1s;
   -o-transition: background 0.1s;
@@ -101,3 +112,4 @@ a:hover{
 .log-out{
   cursor: pointer;
 }
+

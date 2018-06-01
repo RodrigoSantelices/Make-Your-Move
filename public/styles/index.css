@@ -3,9 +3,43 @@ header{
 }
 
 body{
-   background: linear-gradient(#D2B4F0 ,#C8EF99) 
+   background: linear-gradient(#D2B4F0 ,#C8EF99); 
+   font-family: 'Poppins', sans-serif;
+   color: #042037;
 }
 
 img{
     opacity: .5;
 }
+
+h1{
+    font-size: 50px;
+    margin-bottom: 5px;
+    color: #042037;
+}
+h2{
+    font-size: 20px;
+    margin-top: 0px;
+    color: #042037;
+}
+
+.center{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-button{
+    height:50px;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:12px;
+    background-color: white;
+    border-color: #042037;
+    font-weight: 900;
+    
+  }
+  a{
+    text-decoration: none !important;
+  }
