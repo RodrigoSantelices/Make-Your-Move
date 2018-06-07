@@ -129,7 +129,16 @@ function getSellProfit() {
           $(`.balance`).empty();
           $(`.balance`).append(`<div class="bal">Balance: $ ${bal}</div>`)  
           $(`.sell`).empty();
-          $(`.sell`).append(`<div class="total-sale">Sell Profit: $ ${totalSale}</div>`)   
+          $(`.sell`).append(`<div class="total-sale">Sell Profit: $ ${totalSale}</div>`)  
+          
+          if(bal >= 0){
+            $(`.bal`).addClass('green')
+            $(`.bal`).removeClass('red')
+          }
+          else if(bal < 0){
+            $(`.bal`).addClass('red')
+            $(`.bal`).removeClass('green')
+          }
       });
     });
   }
@@ -138,6 +147,7 @@ function getSellProfit() {
   function eventTrigger() {
     getBuyCost();
     //getSellProfit();
+    getBudget();
 
     
   }

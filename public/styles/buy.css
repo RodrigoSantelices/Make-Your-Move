@@ -1,10 +1,9 @@
 body {
-  background-color: #BDD9EE;
- 
+  background: linear-gradient(#D2B4F0 ,#C8EF99) no-repeat fixed;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
-  overflow: hidden;
 }
+
 h1{
   font-size: 50px;
   margin-bottom: 5px;
@@ -15,6 +14,7 @@ h2{
   margin-top: 0px;
   color: #042037;
 }
+
 h1, h2 {
   color:#042037;
 }
@@ -40,7 +40,7 @@ h1, h2 {
 .summary{
   border: 2px solid #042037;
   font-weight: 900;
-  width: 300px;
+  width: 500px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -50,8 +50,15 @@ h1, h2 {
   height:50px;
   width: 70px;
 }
+.buy-list-js, .buy-form, .bigBox{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 .bigBox{
   border: 1px solid #042037;
+  max-width: 800px;
+
 }
 
 .unloaded-container.bigBox{
@@ -118,20 +125,25 @@ a{
   color:#042037 !important;
 }
 
-input.name-js, input.value-js, input.add-item-js, input.link-js{
+input.name-js, input.value-js, input.add-item-js, input.location-js{
   height:30px;
 }
 
 .item-p, .item-controls{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 div.buy-list-item{
   width: 100%;
-  text-align: center;
 }
-
+.item-p{
+  width: 90px;;
+}
+.item-controls{
+  float: right;
+  margin-top:15px;
+}
 .labels{
   padding-right: 10px;
   padding-left: 10px;
@@ -157,6 +169,7 @@ input{
   font-weight: 900;
   color:#2B877D;
 }
+
 .unloaded-container .item-load, .unloaded-container .item-delete{
   background-color: #61239D;
   border: none;
@@ -198,13 +211,11 @@ input{
   background-color: #C8EF99;
   color: #4D820B;
 }
-
-div.buy-list-item{
-  width: 100%;
-}
-.item-p{
-  width: 90px;;
-}
 .log-out{
   cursor: pointer;
+}
+
+.add-budget-js{
+  height:56px;
+  width:76px;
 }

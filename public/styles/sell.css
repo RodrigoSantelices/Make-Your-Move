@@ -1,9 +1,9 @@
 body {
-  background-color: #BDD9EE;
- 
+  background: linear-gradient(#D2B4F0 ,#C8EF99) no-repeat fixed;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
 }
+
 h1{
   font-size: 50px;
   margin-bottom: 5px;
@@ -14,6 +14,7 @@ h2{
   margin-top: 0px;
   color: #042037;
 }
+
 h1, h2 {
   color:#042037;
 }
@@ -39,7 +40,7 @@ h1, h2 {
 .summary{
   border: 2px solid #042037;
   font-weight: 900;
-  width: 300px;
+  width: 500px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -49,8 +50,15 @@ h1, h2 {
   height:50px;
   width: 70px;
 }
+.sell-list-js, .sell-form, .bigBox{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 .bigBox{
   border: 1px solid #042037;
+  max-width: 800px;
+
 }
 
 .unloaded-container.bigBox{
@@ -71,7 +79,7 @@ h1, h2 {
 
 .unloaded-wrapper .item-container{
   background-color: #AD82D6;
-  color: #18042C;
+  color: #042037;
   
 }
 .loaded-wrapper .item-container{
@@ -122,15 +130,20 @@ input.name-js, input.value-js, input.add-item-js, input.location-js{
 }
 
 .item-p, .item-controls{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 div.sell-list-item{
   width: 100%;
-  text-align: center;
 }
-
+.item-p{
+  width: 90px;;
+}
+.item-controls{
+  float: right;
+  margin-top:15px;
+}
 .labels{
   padding-right: 10px;
   padding-left: 10px;
@@ -165,17 +178,18 @@ input{
   display: inline-block;
   width: 150px;
   height: 40px;
-  padding: 0 20px;
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
+  
 }
-
-.loaded-container .item-sell:hover, .loaded-container .item-delete:hover{
+.unloaded-container .item-controls{
+  margin-right: 0px;
+}
+.unloaded-container .item-sell:hover, .unloaded-container .item-delete:hover{
   background-color: #D2B4F0;
   color: #61239D;
 }
-
 
 .loaded-container .item-sold, .loaded-container .item-delete{
   background-color: #4D820B;
@@ -188,22 +202,20 @@ input{
   text-align: center;
   cursor: pointer;
   border-radius: 10px;
-  padding: 0 20px;
   
 }
 .loaded-container .item-controls{
   margin-right: 0px;
 }
-.loaded-container .item-sold:hover, .loaded-container .item-delete:hover{
+.loaded-container .item-unload:hover, .loaded-container .item-delete:hover{
   background-color: #C8EF99;
   color: #4D820B;
 }
-div.sell-list-item{
-  width: 100%;
-}
-.item-p{
-  width: 90px;;
-}
 .log-out{
   cursor: pointer;
+}
+
+.add-budget-js{
+  height:56px;
+  width:76px;
 }

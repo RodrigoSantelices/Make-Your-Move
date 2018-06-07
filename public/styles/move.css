@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(#D2B4F0 ,#C8EF99) no-repeat;
+  background: linear-gradient(#D2B4F0 ,#C8EF99) no-repeat fixed;
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
 }
@@ -50,8 +50,15 @@ h1, h2 {
   height:50px;
   width: 70px;
 }
+.move-list-js, .move-form, .bigBox{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 .bigBox{
   border: 1px solid #042037;
+  max-width: 800px;
+
 }
 
 .unloaded-container.bigBox{
@@ -123,8 +130,8 @@ input.name-js, input.value-js, input.add-item-js, input.location-js{
 }
 
 .item-p, .item-controls{
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 div.move-list-item{
@@ -211,4 +218,12 @@ input{
 .add-budget-js{
   height:56px;
   width:76px;
+}
+
+.green{
+  background-color: rgb(137, 231, 21, .6);
+}
+
+.red{
+  background-color: rgba(255, 0, 0, 0.6);
 }
