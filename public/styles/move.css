@@ -109,21 +109,29 @@ h1,h2{
 
 .nav-button{
   height:50px;
-  width: 100px;
-  background-color: #BDD9EE;
-  border-color: #042037;
+  width: 80px;
+  background-color: #8F28F3;
+  color: #F3F9FE;
+  border: none;
   font-weight: 900;
+  font-size:12px;
 }
 .nav-button:hover{
-  border: 5px solid #F3F9FE;
+  background-color: rgb(178, 104, 251) !important;
+  
 }
 .current{
   background-color: #F3F9FE !important;
+  color:#8F28F3 !important;
 }
-a{
+a {
   text-decoration: none !important;
-  color:#042037 !important;
+  color:#F3F9FE !important;
 }
+.current a{
+  color:#8F28F3 !important;
+}
+
 
 input.name-js, input.value-js, input.add-item-js, input.location-js{
   height:30px;
@@ -227,3 +235,4 @@ input{
 .red{
   background-color: rgba(255, 0, 0, 0.6);
 }
+
