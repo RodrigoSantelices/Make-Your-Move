@@ -25,4 +25,6 @@ Finally, the summary page gives you your balance, which is calculated by your Bu
 
 Check out the App here! https://make-your-move.herokuapp.com/
 
+This application uses Node.JS, JavaScript, HTMl, CSS, express, mLab, Travis, JWT, Mongo with Mongoose, and  Mocha Chai.
+
 Make Your Move!
