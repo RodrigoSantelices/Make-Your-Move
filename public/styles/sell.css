@@ -133,7 +133,7 @@ a {
   color:#8F28F3 !important;
 }
 
-input.name-js, input.value-js, input.add-item-js, input.location-js{
+input.name-js, input.value-js, input.location-js{
   height:30px;
 }
 
@@ -165,17 +165,14 @@ input{
 }
 /* BUTTONS*/
 .add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
+  height:36px;
+  width: 80px;
+  background-color: rgb(37, 197, 45);
+  color: #F3F9FE;
+  border: none;
   font-weight: 900;
-  color:#2B877D;
-}
-
-.add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
-  font-weight: 900;
-  color:#2B877D;
+  font-size:12px;
+  margin-left: -5px;
 }
 
 .unloaded-container .item-sell, .unloaded-container .item-delete{

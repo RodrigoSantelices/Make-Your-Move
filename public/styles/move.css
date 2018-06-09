@@ -45,11 +45,7 @@ h1, h2 {
   margin-left: auto;
   margin-right: auto;
 }
-.budget-js{
-  text-align: center;
-  height:50px;
-  width: 70px;
-}
+
 .move-list-js, .move-form, .bigBox{
   text-align: center;
   margin-left: auto;
@@ -133,7 +129,7 @@ a {
 }
 
 
-input.name-js, input.value-js, input.add-item-js, input.location-js{
+input.name-js, input.value-js, input.location-js{
   height:30px;
 }
 
@@ -164,18 +160,17 @@ input{
   width: 100px; 
 }
 /* BUTTONS*/
-.add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
-  font-weight: 900;
-  color:#2B877D;
-}
+
 
 .add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
+  height:36px;
+  width: 80px;
+  background-color: rgb(37, 197, 45);
+  color: #F3F9FE;
+  border: none;
   font-weight: 900;
-  color:#2B877D;
+  font-size:12px;
+  margin-left: -5px;
 }
 
 .unloaded-container .item-load, .unloaded-container .item-delete{
@@ -223,10 +218,6 @@ input{
   cursor: pointer;
 }
 
-.add-budget-js{
-  height:56px;
-  width:76px;
-}
 
 .green{
   background-color: rgb(137, 231, 21, .6);
@@ -236,3 +227,26 @@ input{
   background-color: rgba(255, 0, 0, 0.6);
 }
 
+.add-budget-js{
+  height:36px;
+  width: 80px;
+  background-color: rgb(37, 197, 45);
+  color: #F3F9FE;
+  border: none;
+  font-weight: 900;
+  font-size:12px;
+  margin-left: -5px;
+  
+}
+
+.budget-js{
+  text-align: center;
+  height:30px;
+  width: 80px;
+}
+
+@media only screen and (max-width:520px ){
+  .summary{
+    width: 300px;
+  }
+}

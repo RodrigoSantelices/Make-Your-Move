@@ -133,7 +133,7 @@ a {
   color:#8F28F3 !important;
 }
 
-input.name-js, input.value-js, input.add-item-js, input.location-js{
+input.name-js, input.value-js, input.link-js{
   height:30px;
 }
 
@@ -165,18 +165,16 @@ input{
 }
 /* BUTTONS*/
 .add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
+  height:36px;
+  width: 80px;
+  background-color: rgb(37, 197, 45);
+  color: #F3F9FE;
+  border: none;
   font-weight: 900;
-  color:#2B877D;
+  font-size:12px;
+  margin-left: -5px;
 }
 
-.add-item-js{
-  background-color: #BDD9EE;
-  border-color: #2B877D;
-  font-weight: 900;
-  color:#2B877D;
-}
 
 .unloaded-container .item-load, .unloaded-container .item-delete{
   background-color: #61239D;
@@ -226,4 +224,15 @@ input{
 .add-budget-js{
   height:56px;
   width:76px;
+}
+
+@media only screen and (max-width:820px){
+
+  input.name-js{
+    width: 100px;
+  }
+ 
+  input.link-js{
+    width: 120px;
+  }
 }
