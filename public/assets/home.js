@@ -7,8 +7,8 @@ $(function () {
 })
 
 //get budget
-var serverBase = '//localhost:8080';
-var BUDGET_URL = serverBase + '/api/budget';
+
+var BUDGET_URL =  '/api/budget';
 let budget= 0;
 function getBudget() {
   $(`.budget`).empty();
@@ -75,7 +75,7 @@ $(function () {
 
 let totalCost = 0;
 
-var BUYLIST_URL = serverBase + '/api/buy';
+var BUYLIST_URL =  '/api/buy';
 
 function getBuyCost() {
   $(`.loaded-wrapper`).empty();
@@ -104,7 +104,7 @@ function getBuyCost() {
   };
 
 let totalSale = 0;
-var SELLLIST_URL = serverBase + '/api/sell';
+var SELLLIST_URL =  '/api/sell';
 
 function getSellProfit() {
     $(`.loaded-wrapper`).empty();

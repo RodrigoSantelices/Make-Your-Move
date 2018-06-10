@@ -89,8 +89,8 @@ function loadItem() {
 }
 
 
-var serverBase = '//localhost:8080';
-var MOVELIST_URL = serverBase + '/api/move';
+
+var MOVELIST_URL = '/api/move';
 
 function getMoveList() {
   $(`.loaded-wrapper`).empty();

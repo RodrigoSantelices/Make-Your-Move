@@ -89,8 +89,8 @@ function loadItem() {
 }
 
 let cost = 0;
-var serverBase = '//localhost:8080';
-var BUYLIST_URL = serverBase + '/api/buy';
+
+var BUYLIST_URL = '/api/buy';
 
 function getBuyList() {
   $(`.loaded-wrapper`).empty();

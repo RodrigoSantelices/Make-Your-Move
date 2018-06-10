@@ -85,8 +85,8 @@ function sellItem() {
 }
 
 let sale = 0;
-var serverBase = '//localhost:8080';
-var SELLLIST_URL = serverBase + '/api/sell';
+
+var SELLLIST_URL = '/api/sell';
 
 function getSellList() {
   $(`.loaded-wrapper`).empty();
