@@ -152,10 +152,6 @@ div.sell-list-item{
   float: right;
   margin-top:15px;
 }
-.labels{
-  padding-right: 10px;
-  padding-left: 10px;
-}
 
 input{
   text-align: center;
@@ -166,13 +162,12 @@ input{
 /* BUTTONS*/
 .add-item-js{
   height:36px;
-  width: 80px;
+  width: 154px;
   background-color: rgb(37, 197, 45);
   color: #F3F9FE;
   border: none;
   font-weight: 900;
   font-size:12px;
-  margin-left: -5px;
 }
 
 .unloaded-container .item-sell, .unloaded-container .item-delete{
@@ -223,4 +218,15 @@ input{
 .add-budget-js{
   height:56px;
   width:76px;
+}
+.name-js{
+  width: 150px !important;
+}
+.value-js{
+  width: 150px !important;
+}
+.question{
+  display: block;
+  margin-top:5px;
+  margin-bottom:5px;
 }

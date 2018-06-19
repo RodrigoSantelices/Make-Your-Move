@@ -148,29 +148,26 @@ div.move-list-item{
   float: right;
   margin-top:15px;
 }
-.labels{
-  padding-right: 10px;
-  padding-left: 10px;
-}
+
 
 input{
   text-align: center;
 }
-.value-js{
-  width: 100px; 
+.value-js, .name-js, .location-js{
+  width: 150px; 
 }
 /* BUTTONS*/
 
 
 .add-item-js{
   height:36px;
-  width: 80px;
+  width: 154px;
   background-color: rgb(37, 197, 45);
   color: #F3F9FE;
   border: none;
   font-weight: 900;
   font-size:12px;
-  margin-left: -5px;
+  
 }
 
 .unloaded-container .item-load, .unloaded-container .item-delete{
@@ -244,6 +241,13 @@ input{
   height:30px;
   width: 80px;
 }
+
+.question{
+  display: block;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
 
 @media only screen and (max-width:520px ){
   .summary{

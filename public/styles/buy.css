@@ -152,27 +152,24 @@ div.buy-list-item{
   float: right;
   margin-top:15px;
 }
-.labels{
-  padding-right: 10px;
-  padding-left: 10px;
-}
+
 
 input{
   text-align: center;
 }
-.value-js{
-  width: 100px; 
+.value-js, .name-js, .link-js{
+  width: 150px; 
 }
 /* BUTTONS*/
 .add-item-js{
   height:36px;
-  width: 80px;
+  width: 154px;
   background-color: rgb(37, 197, 45);
   color: #F3F9FE;
   border: none;
   font-weight: 900;
   font-size:12px;
-  margin-left: -5px;
+ 
 }
 
 
@@ -225,14 +222,8 @@ input{
   height:56px;
   width:76px;
 }
-
-@media only screen and (max-width:820px){
-
-  input.name-js{
-    width: 100px;
-  }
- 
-  input.link-js{
-    width: 120px;
-  }
+.question{
+  display: block;
+  margin-top:5px;
+  margin-bottom:5px;
 }
