@@ -215,10 +215,7 @@ input{
   cursor: pointer;
 }
 
-.add-budget-js{
-  height:56px;
-  width:76px;
-}
+
 .name-js{
   width: 150px !important;
 }
