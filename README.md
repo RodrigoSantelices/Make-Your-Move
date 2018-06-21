@@ -28,3 +28,8 @@ Check out the App here! https://make-your-move.herokuapp.com/
 This application uses Node.JS, JavaScript, HTMl, CSS, express, mLab, Travis, JWT, Mongo with Mongoose, and  Mocha Chai.
 
 Make Your Move!
+
+To quickly test the application use these credentials:
+
+email: thinkful@test.com
+password: thinkfultester

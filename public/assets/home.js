@@ -22,7 +22,8 @@ function getBudget() {
   
   }).done(function (budgetVal) {
     const lastBudget = budgetVal[budgetVal.length-1]
-    budget = lastBudget.budget
+    if(budgetVal){
+    budget = lastBudget.budget}
     //console.log(budgetVal);
     $(`.budget`).empty();
     $(`.budget`).append(`<p>Budget: $ ${budget}</p>`)
