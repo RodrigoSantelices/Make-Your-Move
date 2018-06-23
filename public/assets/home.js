@@ -21,15 +21,15 @@ function getBudget() {
     }
   
   }).done(function (budgetVal) {
-    const lastBudget = budgetVal[budgetVal.length-1]
     if(budgetVal){
-    budget = lastBudget.budget}
+    const lastBudget = budgetVal[budgetVal.length-1]
+    budget = lastBudget.budget
     //console.log(budgetVal);
     $(`.budget`).empty();
     $(`.budget`).append(`<p>Budget: $ ${budget}</p>`)
-    getSellProfit();
     
-     
+  }
+  getSellProfit();
     });
   };
 
