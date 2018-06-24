@@ -114,3 +114,44 @@ a:hover{
   cursor: pointer;
 }
 
+@media only screen and (min-width:1200px ){
+  .logBox{
+    width: 900px;
+  }
+  .inputs{
+    display: inline-block;
+    text-align: center;
+  }
+  .loginBox, .signUpBox{
+    text-align: center;
+  }
+}
+@media only screen and (min-width:900px) and (max-width:1199px){
+  .logBox{
+    width: 600px;
+  }
+  .inputs{
+    display: inline-block;
+    text-align: center;
+  }
+  .loginBox, .signUpBox{
+    text-align: center;
+  }
+}
+@media only screen and (min-width:600px) and (max-width:899px){
+  .logBox{
+    width: 500px;
+  }
+  .inputs{
+    display: inline-block;
+    text-align: center;
+  }
+  .loginBox, .signUpBox{
+    text-align: center;
+  }
+}
+@media only screen and (min-width:300px) and (max-width:599px){
+  h1{
+    line-height: 45px;
+  }
+}
